@@ -1,0 +1,2 @@
+module brief1 {
+}
