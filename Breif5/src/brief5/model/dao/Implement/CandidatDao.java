@@ -10,6 +10,9 @@ import brief5.domain.Candidat;
 import brief5.model.dao.Dao;
 
 public class CandidatDao implements Dao<Candidat> {
+	
+	
+
 
 	@Override
 	public Candidat createCandidat(Candidat cand) {
@@ -51,6 +54,54 @@ public class CandidatDao implements Dao<Candidat> {
 	
 	
 	
+	
+	
+	@Override
+	public int update(Candidat candid) throws SQLException {
+		Connection connection = DB.getConnection();
+
+		String sql = ("UPDATE Candidat SET ,Nom_Candidat =? ,Prenom_Candidat =?,Email_Candidat =? ,Password_Candidat =? ,Adresse_Candidat =?, Ville_Candidat =? ,Pays_Candidat =? WHERE ID_Candidat= ?)");
+		
+		PreparedStatement P_S = connection.prepareStatement(sql);
+		P_S.setInt(1, candid.getIdCandidat());
+		P_S.setString(2,candid.getNomCandidat() );
+		P_S.setString(3,candid.getPrenomCandidat() );
+		P_S.setString(4,candid.getEmailCandidat());
+		P_S.setString(5, candid.getPassWordCandidat());
+		P_S.setString(6, candid.getAdresseCandidat());
+		P_S.setString(7, candid.getVille_Candidat());
+		P_S.setString(8, candid.getPaysCandidat());
+		
+		int result = P_S.executeUpdate();
+		
+		P_S.close();
+		Connect.close();
+		
+		return result;
+	}
+	
+	/*
+	 * public updateCandidat( Candidat candid) throws ClassNotFoundException {
+	 * Connection connection = DB.getConnection();
+	 * 
+	 * 
+	 * String sql =
+	 * ("UPDATE Candidat SET ,Nom_Candidat =? ,Prenom_Candidat =?,Email_Candidat =? ,Password_Candidat =? ,Adresse_Candidat =?, Ville_Candidat =? ,Pays_Candidat =? WHERE ID_Candidat= ?)"
+	 * ); try { PreparedStatement P_S = Connect.prepareStatement(sql); P_S.setInt(1,
+	 * candid.getIdCandidat()); P_S.setString(2,candid.getNomCandidat() );
+	 * P_S.setString(3,candid.getPrenomCandidat() );
+	 * P_S.setString(4,candid.getEmailCandidat()); P_S.setString(5,
+	 * candid.getPassWordCandidat()); P_S.setString(6, candid.getAdresseCandidat());
+	 * P_S.setString(7, candid.getVille_Candidat()); P_S.setString(8,
+	 * candid.getPaysCandidat()); P_S.execute(); P_S.setInt(5, Id_candidat);
+	 * 
+	 * int i = P_S.executeUpdate(); if(i == 1) { return true; } P_S.close();
+	 * Connect.close();
+	 * 
+	 * } catch (SQLException e) { e.printStackTrace(); }
+	 * 
+	 * return false; }
+	 */
 	public void delete(Integer candid){
 		
 		String sql = "DELETE FROM Candidat WHERE Id_candidat = ?;";
@@ -75,25 +126,44 @@ public class CandidatDao implements Dao<Candidat> {
 
 			e.printStackTrace();
 		}
-	//	return cand;
 
-	}
 		
+		
+	}
 	
 	
 	
-	
+	/*
+	 * public Candidat update1(Candidat candid){ String sql =
+	 * "UPDATE  Candidat set  ,Nom_Candidat =? ,Prenom_Candidat =?,Email_Candidat =? ,Password_Candidat =? ,Adresse_Candidat =?, Ville_Candidat =? ,Pays_Candidat =? WHERE ID_Candidat= ?"
+	 * ;
+	 * 
+	 * try( Connection connection = DB.getConnection(); PreparedStatement P_S =
+	 * Connect.prepareStatement(sql);){
+	 * 
+	 * P_S.setInt(1, candid.getIdCandidat());
+	 * P_S.setString(2,candid.getNomCandidat() );
+	 * P_S.setString(3,candid.getPrenomCandidat() );
+	 * P_S.setString(4,candid.getEmailCandidat()); P_S.setString(5,
+	 * candid.getPassWordCandidat()); P_S.setString(6, candid.getAdresseCandidat());
+	 * P_S.setString(7, candid.getVille_Candidat()); P_S.setString(8,
+	 * candid.getPaysCandidat()); P_S.execute();
+	 * 
+	 * } catch (Exception e) {
+	 * 
+	 * e.printStackTrace(); } return candid;
+	 * 
+	 * 
+	 * 
+	 * }
+	 */
+
 	
 	
 	
 	
 	
 
-	@Override
-	public Candidat getById(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public List<Candidat> getAll() {
@@ -104,23 +174,7 @@ public class CandidatDao implements Dao<Candidat> {
 	
 	
 
-	@Override
-	public String delet(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String saveAll(List<Candidat> items) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String delet(Candidat item) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 
 
@@ -133,12 +187,8 @@ public class CandidatDao implements Dao<Candidat> {
 
 
 
-	@Override
-	public String update(Candidat item) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
+	
 
 
 
@@ -150,12 +200,48 @@ public class CandidatDao implements Dao<Candidat> {
 
 
 
-	@Override
-	public void delete(Candidat cand) throws SQLException {
+	
+
+
+
+
+	public Candidat View(long id) {
 		// TODO Auto-generated method stub
-		
+		return null;
 	}
 
+
+
+
+	@Override
+	public int save(Candidat t) throws SQLException {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+
+
+	
+
+
+
+
+	@Override
+	public int delete(Candidat t) throws SQLException {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+
+
+
+
+
+
+
+	
 	
 
 

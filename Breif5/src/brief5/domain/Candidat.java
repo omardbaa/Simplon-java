@@ -1,8 +1,5 @@
 package brief5.domain;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-
 public class Candidat {
 
 	private  int IdCandidat;
@@ -89,15 +86,7 @@ public class Candidat {
 				+ PrenomCandidat + ", EmailCandidat=" + EmailCandidat + ", PassWordCandidat=" + PassWordCandidat
 				+ ", AdresseCandidat=" + AdresseCandidat + ", Ville_Candidat=" +AdresseCandidat + " ,PaysCandidat=" + PaysCandidat + "]";
 	}
-	public static void closeConnection(Connection connect) {
-		// TODO Auto-generated method stub
-		
-	}
-	public static void closePreparedStatement(PreparedStatement p_S) {
-		// TODO Auto-generated method stub
-		
-	}
-	
+
 	
 	
 }

@@ -5,7 +5,6 @@ import java.sql.SQLException;
 import java.util.List;
 
 import brief5.Connection.DB;
-import brief5.domain.Candidat;
 
 public interface Dao<T> {
 	
@@ -14,30 +13,47 @@ public interface Dao<T> {
 	
 
 	
-	//CREAT
+
+
 	   public T createCandidat(T cand);
 	
 	
+		/*
+		 * //READ Candidat getById (int id); List<brief5.domain.Candidat> getAll();
+		 * 
+		 * //Update
+		 * 
+		 * 
+		 * boolean updateCandidat(int Id_candidat, Candidat candid) throws
+		 * ClassNotFoundException;
+		 * 
+		 * 
+		 * 
+		 * //DELET String delet (int id); String saveAll(List<brief5.domain.Candidat>
+		 * items); String delet(Candidat item);
+		 * 
+		 * 
+		 * 
+		 * void delete(Candidat cand) throws SQLException;
+		 */
+
+
+
 	
-	//READ
-	Candidat getById (int id);
-	List<brief5.domain.Candidat> getAll();
+	T get(int id) throws SQLException;
+
+	List<T> getAll() throws SQLException;
+
+	int save(T t) throws SQLException;
+
+	int update(T t) throws SQLException;
+
+	int delete(T candid) throws SQLException;
 	
-	//Update
-	String  update (T item);
 	
 	
-	//DELET
-	String  delet (int id);
-	String saveAll(List<brief5.domain.Candidat> items);
-	String  delet(Candidat item);
+	
 
 
-
-	void delete(Candidat cand) throws SQLException;
-
-
-
-	void updateCandidat();
 	
 }

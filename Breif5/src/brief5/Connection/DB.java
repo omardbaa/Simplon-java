@@ -2,7 +2,6 @@ package brief5.Connection;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class DB {
@@ -29,62 +28,6 @@ public class DB {
 		return Connect;
 		
 	}
-
-
-
-
-
-	
-
-
-
-
-
-	public static void closeConnection(Connection connection) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-
-
-
-	public static void closePreparedStatement(PreparedStatement p_S) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
-
-
-
-
-
-
-
-
 
 
 
