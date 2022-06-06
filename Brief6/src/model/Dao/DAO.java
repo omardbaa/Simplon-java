@@ -1,18 +1,18 @@
 package model.Dao;
 
 	
-	import java.sql.Connection;
-	import java.util.ArrayList;
+import java.sql.Connection;
+import java.util.ArrayList;
 
 import domain.Product;
-import model.DB.DB;
+import view.DBConnect;
 
 
 
 
 
 	public interface DAO<T> {
-		 public Connection connect = DB.getInstance();
+		 public Connection connect = DBConnect.getInstance() ;
 		    
 		    /*
 		     * Permet de récupérer un objet via son ID
@@ -45,14 +45,12 @@ import model.DB.DB;
 		    
 		    
 		    
-			ArrayList<Product> voirProduit();
-			Product ajouter(Product produit);
-			void modifierProduit(Product product, int IdProduitAModifier);
+			ArrayList<Product> viewProduct();
+			Product add(Product product);
+			void updateProduct(Product product, int updateIdProduct);
 		
 
-
+	
 
 	}
 
-}
-}
