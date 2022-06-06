@@ -1,4 +1,4 @@
-package dao;
+package domain.dao;
 
 public interface ProductDAO {
 
