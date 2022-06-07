@@ -2,6 +2,8 @@ package view;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class DBConnect  {
@@ -25,5 +27,25 @@ public class DBConnect  {
 				 }
 				 return null;
 			 }
+
+			public static Connection getConnection() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+
+			public static void closeResultSet(ResultSet rs) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			public static void closePreparedStatement(PreparedStatement ps) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			public static void closeConnection(Connection con) {
+				// TODO Auto-generated method stub
+				
+			}
 
 }

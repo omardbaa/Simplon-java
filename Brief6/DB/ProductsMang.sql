@@ -8,13 +8,16 @@ create table Users (
 	Country varchar(50)
 );
 
+se
+
+select * from product where category_id = 2
 
 Create table Product(
 	IdProduct int Primary key,
 	ProductName varchar(40),
-	Stock int,
-	CategoryName varchar(40),IdCategory int,
-	foreign key (IdCategory) references Category(IdCategory) 
+	CategoName varchar(40),
+	Stock int,IdCategory int,
+	foreign key (IdCategory) references Categories(IdCategory) 
 );
 
 
@@ -25,4 +28,4 @@ Create table Categories(
 );
 
 
-
+select * from Users

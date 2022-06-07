@@ -3,22 +3,44 @@ package domain;
 public class Product {
 
 	
-	private int IdProduct,Stock;
+	private int IdProduct, Stock, IdCategory ;
 	private String ProductName;
-	private  Categories CategoryName;
+	private  String CategoName;
 	
 	
 	
 	
-	public Product(int idProduct, int stock, String productName, Categories categoryName) {
+	public Product(int idProduct,  String productName, String categoName,int stock, int idCategory) {
 	
 		this.IdProduct = idProduct;
 		this.Stock = 0;
-		this.ProductName = productName;
-		this.CategoryName = categoryName;
+		this.ProductName = "";
+		this.CategoName = categoName;
+		this.IdCategory = idCategory;
 		
 		
 	}
+	
+	
+	public Product(Product product) {
+		this.IdProduct = product.IdProduct;
+		this.ProductName = product.ProductName;
+		this.CategoName = product.CategoName;
+		this.Stock = product.Stock;
+		this.IdCategory = product.IdCategory;
+	}
+	
+	
+	public int getIdCategory() {
+		return IdCategory;
+	}
+
+
+	public void setIdCategory(int idCategory) {
+		IdCategory = idCategory;
+	}
+
+
 	public int getIdProduct() {
 		return IdProduct;
 	}
@@ -37,11 +59,14 @@ public class Product {
 	public void setProductName(String productName) {
 		ProductName = productName;
 	}
-	public Categories getCategoryName() {
-		return CategoryName;
-	}
-	public void setCategoryName(Categories categoryName) {
-		CategoryName = categoryName;
+	public void setCategoName(String categoName) {
+		CategoName = categoName;
+		}
+		
+		public String getCategoName() {
+		return CategoName;
+	
+	
 	}
 	
 	
@@ -49,8 +74,8 @@ public class Product {
 	
 	@Override
 	public String toString() {
-		return "Product [IdProduct=" + IdProduct + ", Stock=" + Stock + ", ProductName=" + ProductName
-				+ ", CategoryName=" + CategoryName + "]";
+		return "Product [IdProduct=" + IdProduct + ", Stock=" + Stock + ",  IdCategory=" + IdCategory + " , ProductName=" + ProductName
+				+ ", CategoName=" + CategoName + "]";
 	}
 	
 	

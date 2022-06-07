@@ -8,9 +8,10 @@ public class User {
 	
 	
 	
-	public User( String FirstName, String LastName, String Email, String  City,
+	public User(int UserId, String FirstName, String LastName, String Email, String  City,
 	String Country) {
 		
+		this.UserId = UserId;
 		this.FirstName = FirstName;
 		this.LastName = LastName;
 		this.Email = Email;

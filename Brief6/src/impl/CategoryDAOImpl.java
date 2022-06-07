@@ -1,4 +1,4 @@
-package model.Dao.Impl;
+package impl;
 
 public class CategoryDAOImpl {
 
