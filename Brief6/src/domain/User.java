@@ -6,7 +6,9 @@ public class User {
 	private int UserId;
 	private String FirstName,LastName,Email,City,Country;
 	
-	
+	public User() {
+		
+	}
 	
 	public User(int UserId, String FirstName, String LastName, String Email, String  City,
 	String Country) {

@@ -10,11 +10,16 @@ public class Product {
 	
 	
 	
+	public Product() {
+		super();
+	}
+
+
 	public Product(int idProduct,  String productName, String categoName,int stock, int idCategory) {
 	
 		this.IdProduct = idProduct;
-		this.Stock = 0;
-		this.ProductName = "";
+		this.Stock = stock;
+		this.ProductName = productName;
 		this.CategoName = categoName;
 		this.IdCategory = idCategory;
 		

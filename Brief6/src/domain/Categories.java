@@ -14,6 +14,13 @@ public class Categories {
 	
 	
 	
+	public Categories() {
+		super();
+	}
+
+
+
+
 	public Categories(int idCategory, String categoryName) {
 		super();
 		this.IdCategory = idCategory;

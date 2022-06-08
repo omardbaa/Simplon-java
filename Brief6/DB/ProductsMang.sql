@@ -29,3 +29,5 @@ Create table Categories(
 
 
 select * from Users
+select * from Product
+select * from Categories
