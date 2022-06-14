@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CandidatController">
+   <right>
+      <AnchorPane minHeight="650.0" minWidth="700.0" prefHeight="634.0" prefWidth="700.0" styleClass="pane" stylesheets="@application.css" BorderPane.alignment="CENTER">
+         <children>
+            <TextField fx:id="lastname" layoutX="200.0" layoutY="200.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="27.0" prefWidth="200.0" promptText="LastName" styleClass="fild-txt" stylesheets="@application.css" />
+            <Button fx:id="btCreate" layoutX="45.0" layoutY="180.0" mnemonicParsing="false" onAction="#create" prefHeight="38.0" prefWidth="100.0" styleClass="blue-btn" text="Create">
+               <font>
+                  <Font name="Century Gothic Bold" size="13.0" />
+               </font></Button>
+            <Button fx:id="btnread" layoutX="560.0" layoutY="245.0" mnemonicParsing="false" onAction="#read" prefHeight="38.0" prefWidth="100.0" styleClass="blue-btn" text="Search">
+               <font>
+                  <Font name="Century Gothic Bold" size="13.0" />
+               </font></Button>
+            <Button fx:id="btnUpdate" layoutX="45.0" layoutY="240.0" mnemonicParsing="false" onAction="#update" prefHeight="38.0" prefWidth="100.0" styleClass="blue-btn" text="Update">
+               <font>
+                  <Font name="Century Gothic Bold" size="13.0" />
+               </font></Button>
+            <TextField fx:id="firstname" layoutX="200.0" layoutY="160.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="27.0" prefWidth="200.0" promptText="FirstName" styleClass="fild-txt" stylesheets="@application.css" />
+            <TextField fx:id="id" layoutX="534.0" layoutY="204.0" prefHeight="25.0" prefWidth="151.0" promptText="Search" styleClass="fild-txt" stylesheets="@application.css" />
+            <TextField fx:id="email" layoutX="200.0" layoutY="240.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="27.0" prefWidth="200.0" promptText="E-mail" styleClass="fild-txt" stylesheets="@application.css" />
+            <TableView fx:id="tableView" layoutX="15.0" layoutY="406.0" prefHeight="200.0" prefWidth="670.0">
+              <columns>
+                  <TableColumn fx:id="clmnIdCandidat" prefWidth="80.79992485046387" text="Id Candidat" />
+                <TableColumn fx:id="clmnNomCandidat" prefWidth="104.00000762939453" text="First Name" />
+                <TableColumn fx:id="clmnPrenomCandidat" prefWidth="101.5999755859375" text="Last Name" />
+                  <TableColumn fx:id="clmnEmailCandidat" prefWidth="105.60003662109375" text="E-mail" />
+                  <TableColumn fx:id="clmnAdresseCandidat" prefWidth="122.39993286132812" text="Adresse" />
+                  <TableColumn fx:id="clmnVilleCandidat" prefWidth="66.39996337890625" text="City" />
+                   <TableColumn fx:id="clmnPaysCandidat" prefWidth="104.0" text="Country" />
+              </columns>
+            </TableView>
+            <TextField fx:id="city" layoutX="200.0" layoutY="320.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="27.0" prefWidth="200.0" promptText="City" styleClass="fild-txt" stylesheets="@application.css" />
+            <TextField fx:id="country" layoutX="200.0" layoutY="360.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="27.0" prefWidth="200.0" promptText="Country" styleClass="fild-txt" stylesheets="@application.css" />
+            <TextField fx:id="adresse" layoutX="200.0" layoutY="280.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="27.0" prefWidth="200.0" promptText="Adresse" styleClass="fild-txt" stylesheets="@application.css" />
+            <TextField fx:id="idCandidat" layoutX="200.0" layoutY="120.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="27.0" prefWidth="200.0" promptText="Id Candidate" styleClass="fild-txt" stylesheets="@application.css" />
+            <Label layoutX="166.0" layoutY="4.0" prefHeight="63.0" prefWidth="424.0" text="Welcome to Inscription File App" textFill="#ff6f00">
+               <font>
+                  <Font name="Century Gothic Bold" size="27.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="120.0" fitWidth="118.0" layoutX="33.0" layoutY="-17.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/SoussTalent.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="btndelete" layoutX="45.0" layoutY="300.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#delete" prefHeight="38.0" prefWidth="100.0" styleClass="blue-btn" text="Delete">
+               <font>
+                  <Font name="Century Gothic Bold" size="16.0" />
+               </font></Button>
+         </children></AnchorPane>
+   </right>
+</BorderPane>

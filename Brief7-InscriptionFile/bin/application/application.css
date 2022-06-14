@@ -1,0 +1,78 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+.parent{
+	
+	-fx-background-color: transparent ;
+}
+
+.Label{
+	-fx-font-size: 14;
+	-fx-font-family: "Verdana";
+	-fx-text-fill: "whitesmoke";
+}
+
+ 
+ .pane {
+-fx-background-color: #408080 ;
+ }
+ 
+ .login-singup-button{
+ 
+ -fx-background-color: transparent;
+  -fx-border-radius: 15px;
+  -fx-border-color: #ffffff;
+  -fx-border-width: 1px;
+  -fx-text-fill: #ffffff;
+  -fx-font-size: 13;
+  -fx-font-family: "Verdana";
+ }
+ 
+ .background-account{
+  -fx-background-image: url("/application/images/SoussTalent.png");
+ -fx-background-size: 280 380;
+ -fx-background-position: center center;
+ -fx-background-color: #ffffff ;
+ 
+ 
+ }
+ 
+ 
+ 
+ 
+ 
+ 
+
+.trans-btn-white-border{
+	-fx-background-color: transparent ;
+	-fx-background-radius: 5px;
+	-fx-border-color: #cccccc;
+	-fx-border-radius: 5px;
+	-fx-border-width: 1px;
+	-fx-text-fill: whitesmoke ;
+}
+.white-pane{
+	-fx-background-image: url("/application/images/bck.jpg");
+	-fx-background-size: 281 386;
+	-fx-background-position: center center;
+	-fx-background-color: #FFFFFF;
+}
+.tf_box{
+	-fx-background-color: transparent ;
+	-fx-border-color: #DEDEE4;
+	-fx-border-width: 0px 0px 1px 0px;
+}
+.tf{
+	-fx-background-color: transparent ;
+	-fx-prompt-text-fill: #2C2C2C;
+}
+.pink-btn{
+	-fx-background-color: #0080c0;
+	-fx-background-radius: 5px;
+	-fx-text-fill: #ffffff;
+}
+
+
+.forget-password{
+	-fx-background-color: transparent ;
+	-fx-text-fill: #0080c0;
+	 
+}
