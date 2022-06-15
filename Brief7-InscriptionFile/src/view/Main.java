@@ -49,12 +49,12 @@ public class Main {
 			
 			//Update
 			
-//	Candidat update = new Candidat(6,"Najib","Rachid","Najib.Rachid@gmail.com","Tilila-agadir ", "Agadir","Maroc");{
-//    System.out.println(candidatDao.update(6, update)); 
-//   
-//    System.out.println(candidatDao.read(6));
-//		
-//}
+	Candidat update = new Candidat(3,"Najib","Rachid","Najib.Rachid@gmail.com","Tilila-agadir ", "Agadir","Maroc");{
+    System.out.println(candidatDao.update(1, update)); 
+   
+   // System.out.println(candidatDao.read(1));
+		
+}
 	
 	
 //	Delete
