@@ -1,0 +1,2 @@
+INDEX VERSION 1.131+C:\Users\HP\Desktop\Simplon-java\Simplon-java\Brief7-InscriptionFile\.metadata\.plugins\org.eclipse.jdt.core
+1865797976.index

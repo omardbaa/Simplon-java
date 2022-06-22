@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SingUpController">
+   <top>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="740.0" styleClass="pane" stylesheets="@application.css" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane layoutX="402.0" layoutY="76.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="421.0" prefWidth="311.0" styleClass="login-signup">
+               <children>
+                  <Label layoutX="125.0" layoutY="43.0" text="Sing up">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Button id="submitButton" fx:id="SingupSubmit" layoutX="23.0" layoutY="355.0" mnemonicParsing="false" onAction="#SingUpMessageOnAction" prefHeight="25.0" prefWidth="266.0" styleClass="login-submit" stylesheets="@application.css" text="Submit">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="51.0" layoutY="390.0" text="You alredy have account?" />
+                  <Label layoutX="23.0" layoutY="294.0" text="Password" />
+                  <TextField fx:id="tfUserName" layoutX="22.0" layoutY="252.0" prefHeight="25.0" prefWidth="268.0" promptText="Username" />
+                  <Label layoutX="23.0" layoutY="234.0" text="Username" />
+                  <TextField fx:id="tfFirstName" layoutX="23.0" layoutY="131.0" prefHeight="25.0" prefWidth="268.0" promptText="Firstname" />
+                  <Label layoutX="23.0" layoutY="113.0" text="Firstname" />
+                  <TextField fx:id="tfLastName" layoutX="22.0" layoutY="191.0" prefHeight="25.0" prefWidth="268.0" promptText="Lastname" />
+                  <Label layoutX="23.0" layoutY="172.0" text="Lastname" />
+                  <PasswordField fx:id="psPassWord" layoutX="23.0" layoutY="314.0" prefHeight="25.0" prefWidth="268.0" promptText="Password" />
+                  <Label fx:id="SingupMessage" alignment="CENTER" contentDisplay="CENTER" layoutX="24.0" layoutY="79.0" prefHeight="17.0" prefWidth="266.0" textFill="RED" />
+                  <Button fx:id="LogInBtn" layoutX="193.0" layoutY="381.0" mnemonicParsing="false" onAction="#LogInStageForm" styleClass="SingUpBtn" stylesheets="@application.css" text="Sing In" textFill="#2486c7">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <ImageView fx:id="ToDoImgView" fitHeight="336.0" fitWidth="385.0" layoutX="7.0" layoutY="214.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/Todolist.jpg" />
+               </image>
+            </ImageView>
+            <Label layoutX="60.0" layoutY="95.0" text="Welcome to TASK TO DO" textFill="#4b8cf3">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="98.0" layoutY="130.0" text="Your best daily task manager" />
+            <Circle fill="WHITE" layoutX="561.0" layoutY="67.0" radius="40.0" stroke="WHITE" strokeType="INSIDE" />
+            <ImageView fx:id="SingUpImg" fitHeight="81.0" fitWidth="83.0" layoutX="522.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/ProfilePic.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </top>
+</BorderPane>
