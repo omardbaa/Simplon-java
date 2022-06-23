@@ -6,14 +6,16 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="993.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.TaskController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.TaskController">
    <center>
-      <AnchorPane prefHeight="610.0" prefWidth="953.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="610.0" prefWidth="950.0" BorderPane.alignment="CENTER">
          <children>
             <ChoiceBox fx:id="ChoiceBxStatus" layoutX="430.0" layoutY="208.0" prefHeight="25.0" prefWidth="166.0" />
             <VBox layoutX="20.0" layoutY="281.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="280.0" prefWidth="944.0">
@@ -34,16 +36,11 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="tfTitle" layoutX="24.0" layoutY="193.0" prefHeight="25.0" prefWidth="151.0" />
-            <Label layoutX="52.0" layoutY="167.0" text="Insert Title" />
+            <TextField fx:id="tfTitle" layoutX="24.0" layoutY="150.0" prefHeight="25.0" prefWidth="151.0" />
+            <Label layoutX="52.0" layoutY="124.0" text="Insert Title" />
             <TextField fx:id="tfDescription" layoutX="185.0" layoutY="215.0" prefHeight="25.0" prefWidth="227.0" />
             <Label layoutX="250.0" layoutY="165.0" text="Add description" />
             <Label layoutX="819.0" layoutY="166.0" text="Add Category" />
-            <Button fx:id="btCreate" layoutX="44.0" layoutY="76.0" mnemonicParsing="false" onAction="#create" prefHeight="38.0" prefWidth="100.0" styleClass="blue-btn" text="Create">
-               <font>
-                  <Font name="Century Gothic Bold" size="13.0" />
-               </font>
-            </Button>
             <Button fx:id="btnUpdate" layoutX="229.0" layoutY="76.0" mnemonicParsing="false" onAction="#update" prefHeight="38.0" prefWidth="100.0" styleClass="blue-btn" text="Update">
                <font>
                   <Font name="Century Gothic Bold" size="13.0" />
@@ -59,8 +56,19 @@
                   <Font name="Century Gothic Bold" size="13.0" />
                </font>
             </Button>
+            
             <TextField fx:id="tfDeadline" layoutX="618.0" layoutY="206.0" prefHeight="26.0" prefWidth="144.0" />
             <ChoiceBox fx:id="ChoiceBxCategory" layoutX="795.0" layoutY="205.0" prefHeight="25.0" prefWidth="166.0" />
+            <Button fx:id="NewTask" layoutX="20.0" layoutY="221.0" mnemonicParsing="false" onAction="#NewTask" prefHeight="15.0" prefWidth="15.0" styleClass="NewTask" stylesheets="@application.css">
+                <graphic>
+        <ImageView fitHeight="40.0" fitWidth="40.0">
+            <Image url="@../images/add.png" />
+                     <image>
+                        <Image url="@../images/add.png" />
+                     </image>
+        </ImageView>
+    </graphic>
+    </Button>
          </children>
       </AnchorPane>
    </center>

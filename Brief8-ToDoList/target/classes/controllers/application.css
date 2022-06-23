@@ -36,7 +36,12 @@
  
  
  
- 
+.NewTask{
+	-fx-border-color: transparent;
+	-fx-background-color: transparent;
+    -fx-graphic: url(../images/add.png);
+
+}
  
 
 .SingUpBtn{

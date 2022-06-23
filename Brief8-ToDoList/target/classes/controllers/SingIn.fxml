@@ -26,14 +26,14 @@
                      </font>
                   </Label>
                   <Label layoutX="59.0" layoutY="310.0" text="You don't have account?" />
-            <Button id="submitButton" fx:id="LoginSubmit" layoutX="19.0" layoutY="258.0" mnemonicParsing="false" onAction="#logingMessageOnAction" prefHeight="25.0" prefWidth="266.0" styleClass="login-submit" stylesheets="@application.css" text="Submit">
+            <Button id="submitButton" fx:id="LoginSubmit" layoutX="19.0" layoutY="258.0" mnemonicParsing="false" onAction="#TasksDashboard" prefHeight="25.0" prefWidth="266.0" styleClass="login-submit" stylesheets="@application.css" text="Submit">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>
                   </Button>
             <Label layoutX="25.0" layoutY="111.0" text="Username" />
                   <Label fx:id="logingMessage" alignment="CENTER" contentDisplay="CENTER" layoutX="20.0" layoutY="79.0" prefHeight="17.0" prefWidth="266.0" textFill="RED" />
-                  <Button fx:id="SingupSubmit" layoutX="191.0" layoutY="301.0" mnemonicParsing="false" onAction="#SingupStageForm" styleClass="SingUpBtn" stylesheets="@application.css" text="Sing up" textFill="#2486c7">
+                  <Button fx:id="SingupSubmit" layoutX="191.0" layoutY="301.0" mnemonicParsing="false" styleClass="SingUpBtn" stylesheets="@application.css" text="Sign up" textFill="#2486c7">
                      <font>
                         <Font size="15.0" />
                      </font>

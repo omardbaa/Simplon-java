@@ -1,19 +1,29 @@
 package controllers;
 
+import java.awt.Event;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
+import application.Main;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 import model.Task;
 import model.dao.TaskDAO;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableColumn;
@@ -23,6 +33,10 @@ import javafx.scene.control.TableView;
 public class TaskController implements Initializable {
 	private TaskDAO taskDao = new TaskDAO();
     public Task task;
+    
+    private Stage stage;
+    private Scene scene;
+   
 	
 	@FXML
 	private ChoiceBox<String> ChoiceBxStatus;
@@ -54,6 +68,10 @@ public class TaskController implements Initializable {
 	private TextField tfCategory;
 	
 	
+	@FXML
+	private Button NewTask;
+	
+	
 	
 	@FXML 
 	private Button btCreate;
@@ -67,26 +85,7 @@ public class TaskController implements Initializable {
 	
 	
 	
-	//create
-	
-	@FXML
-	public void create(ActionEvent event) throws SQLException {
-		
-	Task task = new Task(tfTitle.getText(),tfDescription.getText(),ChoiceBxStatus.getValue(), tfDeadline.getText(), ChoiceBxCategory.getValue());	
-	taskDao.create(task);
-	viewTasks();
 
-	 System.out.println("Candidate has been created successfully" );
-	}
-	//data.addAll(taskDao.getAll());
-//	TablleView.refresh();
-  //	taskDao.getAll();
-//    if(taskDao.create(task) !=null) {
-//		data.addAll(taskDao.getAll());
-//		tableView.refresh();
-//     	taskDao.getAll();	
-//		}
-	//}
 
 	 private final ObservableList<Task> data =	
 		        FXCollections.observableArrayList(
@@ -112,7 +111,9 @@ public class TaskController implements Initializable {
 			DeadlineColumn.setCellValueFactory(new PropertyValueFactory<Task, String>("Deadline"));
 			CategoryColumn.setCellValueFactory(new PropertyValueFactory<Task, String>("Category"));
 			TablleView.setItems(data);
-			TablleView.refresh();
+			 clear();
+             TablleView.refresh(); 
+           
 		}
 		
 		//Read
@@ -144,7 +145,7 @@ public class TaskController implements Initializable {
 				Task task = new Task(tfTitle.getText(),tfDescription.getText(),ChoiceBxStatus.getValue(), tfDeadline.getText(), ChoiceBxCategory.getValue());	
 				 taskDao.update( task); 
 				 viewTasks();
-				 clear();
+				 TablleView.refresh();
 				 System.out.println("Task has been updated successfully" );
 			}
 		 
@@ -157,6 +158,8 @@ public class TaskController implements Initializable {
 
 		             Task task = new  Task(tfTitle.getText());
 		             taskDao.delete(task);
+		             clear();
+		             TablleView.refresh(); 
 		             viewTasks();
 
 		        }catch (Exception e) {
@@ -185,5 +188,22 @@ public class TaskController implements Initializable {
 			StatusColumn.setText(taskStatus);
 		}
 		
+		
+		public void NewTask(ActionEvent event) throws IOException {
+			
+				BorderPane root = (BorderPane)FXMLLoader.load(Main.class.getResource("/controllers/AddTask.fxml"));
+				stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+				Scene scene = new Scene(root, 700, 220);
+				stage.setScene(scene);
+				scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+				//primaryStage.initStyle(StageStyle.UNDECORATED);
+				stage.setTitle("New Task");
+				stage.setMaxWidth(700);
+				stage.setMaxHeight(220);
+				stage.setMinWidth(700);
+				stage.setMinHeight(220);
+				stage.show();
+				
+		}
 
 }

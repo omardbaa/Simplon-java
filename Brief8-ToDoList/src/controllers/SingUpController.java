@@ -3,11 +3,13 @@ package controllers;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
@@ -23,6 +25,9 @@ import model.dao.UserDAO;
 import javafx.scene.control.PasswordField;
 
 public class SingUpController implements Initializable {
+	
+	private Stage stage;
+	private Scene scene ;
 	
 	UserDAO userDao = new UserDAO();	
 	
@@ -49,7 +54,7 @@ public class SingUpController implements Initializable {
 
 	// Event Listener on Button[#SingupSubmit].onAction
 	@FXML
-	public void SingUpMessageOnAction(ActionEvent event) throws SQLException {
+	public void SingUpMessageOnAction(ActionEvent event) throws SQLException, IOException {
 		User user = new User(tfFirstName.getText(),tfLastName.getText(),tfUserName.getText(), psPassWord.getText());
 		System.out.println(userDao.create(user));
 
@@ -60,7 +65,7 @@ public class SingUpController implements Initializable {
 				
 			}
 			else {
-				LogInStageForm();
+				LogInStageForm(event);
 			}
 			}
 	
@@ -70,31 +75,27 @@ public class SingUpController implements Initializable {
 	
 	
 	
-	public void LogInStageForm() {
-		
-		try {
-			
+	// Event Listener on Button[#LogInBtn].onAction
+		@FXML
+		public void LogInStageForm(ActionEvent event) throws IOException {
+
 			BorderPane root = (BorderPane)FXMLLoader.load(Main.class.getResource("/controllers/SingIn.fxml"));
-			Stage SingUpStage = new Stage ();
-			Scene scene = new Scene(root, 750, 535);
+			stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+			Scene scene = new Scene(root, 740, 470);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-			SingUpStage.setScene(scene);
+			stage.setScene(scene);
 			//primaryStage.initStyle(StageStyle.UNDECORATED);
-			SingUpStage.setTitle("TASK TO DO");
-			SingUpStage.setMaxWidth(750);
-			SingUpStage.setMaxHeight(535);
-			SingUpStage.setMinWidth(750);
-			SingUpStage.setMinHeight(535);
-			SingUpStage.show();
-		}catch (Exception e) {
-			e.printStackTrace();
-			e.getCause();
+			stage.setTitle("Log in");
+			stage.setMaxWidth(740);
+			stage.setMaxHeight(470);
+			stage.setMinWidth(740);
+			stage.setMinHeight(470);
+			stage.show();
 		}	
-	}
 
 	@Override
 	public void initialize(URL url, ResourceBundle resourceBundle) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 }

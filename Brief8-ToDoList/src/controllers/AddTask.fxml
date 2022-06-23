@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.QuadCurve?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="220.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AddTaskController">
+   <center>
+      <Pane prefHeight="220.0" prefWidth="700.0" BorderPane.alignment="CENTER">
+         <children>
+            <ChoiceBox fx:id="ChoiceBxStatus" layoutX="119.0" layoutY="139.0" prefHeight="25.0" prefWidth="210.0" />
+            <Label alignment="CENTER" layoutY="139.0" prefHeight="25.0" prefWidth="107.0" text="Task Status">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="tfTitle" layoutX="120.0" layoutY="42.0" prefHeight="25.0" prefWidth="213.0" promptText="Task Title" />
+            <Label layoutX="22.0" layoutY="46.0" text="Insert Title" />
+            <TextField fx:id="tfDescription" layoutX="120.0" layoutY="91.0" prefHeight="25.0" prefWidth="213.0" promptText="Task description" />
+            <Label layoutX="20.0" layoutY="95.0" text="Add description" />
+            <Label layoutX="374.0" layoutY="95.0" text="Select Category" />
+            <Button fx:id="btCreate" layoutX="598.0" layoutY="143.0" mnemonicParsing="false" onAction="#create" prefHeight="29.0" prefWidth="77.0" styleClass="login-submit" stylesheets="@application.css" text="Create">
+               <font>
+                  <Font name="Century Gothic Bold" size="13.0" />
+               </font>
+            </Button>
+            <TextField fx:id="tfDeadline" layoutX="473.0" layoutY="39.0" prefHeight="26.0" prefWidth="212.0" promptText="YYYY-MM-DD" />
+            <ChoiceBox fx:id="ChoiceBxCategory" layoutX="474.0" layoutY="89.0" prefHeight="25.0" prefWidth="213.0" />
+            <Label layoutX="374.0" layoutY="46.0" text="Insert deadline" />
+            <Button fx:id="Cancel" layoutX="496.0" layoutY="143.0" mnemonicParsing="false" onAction="#TasksDashboard" prefHeight="29.0" prefWidth="74.0" text="Cancel">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Button>
+            <QuadCurve controlX="85.79998779296875" controlY="-71.00000762939453" endX="34.80003356933594" endY="-149.0" fill="DODGERBLUE" layoutX="101.0" layoutY="82.0" startX="-178.20001220703125" startY="-58.199989318847656" stroke="TRANSPARENT" strokeType="INSIDE" />
+            <QuadCurve controlX="6.399993896484375" controlY="-45.0" endX="63.999969482421875" endY="-231.0" fill="#fc9526" layoutX="101.0" layoutY="82.0" startX="-210.8000030517578" startY="-45.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+            <QuadCurve controlX="-97.60003662109375" controlY="-143.1999969482422" endX="84.4000244140625" endY="-86.59999084472656" fill="DODGERBLUE" layoutX="778.0" layoutY="304.0" startX="-218.4000244140625" startY="-52.399993896484375" stroke="TRANSPARENT" strokeType="INSIDE" />
+            <QuadCurve controlX="-90.4000244140625" controlY="-165.19998168945312" endX="130.4000244140625" endY="-120.59999084472656" fill="#fc9526" layoutX="778.0" layoutY="304.0" startX="-162.4000244140625" startY="-31.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+         </children>
+      </Pane>
+   </center>
+</BorderPane>

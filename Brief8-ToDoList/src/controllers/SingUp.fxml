@@ -11,18 +11,18 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SingUpController">
+<BorderPane minHeight="530.0" minWidth="750.0" prefHeight="530.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SingUpController">
    <top>
-      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="740.0" styleClass="pane" stylesheets="@application.css" BorderPane.alignment="CENTER">
+      <AnchorPane maxHeight="530.0" maxWidth="750.0" minHeight="530.0" minWidth="750.0" prefHeight="530.0" prefWidth="750.0" styleClass="pane" stylesheets="@application.css" BorderPane.alignment="CENTER">
          <children>
             <AnchorPane layoutX="402.0" layoutY="76.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="421.0" prefWidth="311.0" styleClass="login-signup">
                <children>
-                  <Label layoutX="125.0" layoutY="43.0" text="Sing up">
+                  <Label layoutX="125.0" layoutY="43.0" text="Sign up">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
-                  <Button id="submitButton" fx:id="SingupSubmit" layoutX="23.0" layoutY="355.0" mnemonicParsing="false" onAction="#SingUpMessageOnAction" prefHeight="25.0" prefWidth="266.0" styleClass="login-submit" stylesheets="@application.css" text="Submit">
+                  <Button id="submitButton" fx:id="SingupSubmit" layoutX="23.0" layoutY="355.0" mnemonicParsing="false" onAction="#LogInStageForm" prefHeight="25.0" prefWidth="266.0" styleClass="login-submit" stylesheets="@application.css" text="Submit">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>
@@ -37,7 +37,7 @@
                   <Label layoutX="23.0" layoutY="172.0" text="Lastname" />
                   <PasswordField fx:id="psPassWord" layoutX="23.0" layoutY="314.0" prefHeight="25.0" prefWidth="268.0" promptText="Password" />
                   <Label fx:id="SingupMessage" alignment="CENTER" contentDisplay="CENTER" layoutX="24.0" layoutY="79.0" prefHeight="17.0" prefWidth="266.0" textFill="RED" />
-                  <Button fx:id="LogInBtn" layoutX="193.0" layoutY="381.0" mnemonicParsing="false" onAction="#LogInStageForm" styleClass="SingUpBtn" stylesheets="@application.css" text="Sing In" textFill="#2486c7">
+                  <Button fx:id="LogInBtn" layoutX="193.0" layoutY="381.0" mnemonicParsing="false" onAction="#LogInStageForm" styleClass="SingUpBtn" stylesheets="@application.css" text="Sign In" textFill="#2486c7">
                      <font>
                         <Font size="15.0" />
                      </font>

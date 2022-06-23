@@ -3,6 +3,7 @@ package controllers;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -10,6 +11,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -25,6 +27,10 @@ import javafx.scene.control.PasswordField;
 
 
 public class SingInController implements Initializable{
+	
+	 private Stage stage;
+	   private Scene scene;
+	
 	@FXML
 	private TextField UserName;
 	@FXML
@@ -66,7 +72,7 @@ public class SingInController implements Initializable{
 			
 			}else {
 				//logingMessage.setText("Welcome to TASK TO DO ");	
-				SingupStageForm();
+				TasksDashboard(null);
 	
 			}
 		}
@@ -74,27 +80,22 @@ public class SingInController implements Initializable{
 	e.printStackTrace();
 	}	
 	}
-	public void SingupStageForm() {
+	public void TasksDashboard(ActionEvent event) throws IOException {
 		
-		try {
-			
-			BorderPane root = (BorderPane)FXMLLoader.load(Main.class.getResource("/controllers/SingUp.fxml"));
-			Stage SingUpStage = new Stage ();
-			Scene scene = new Scene(root, 750, 535);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-			SingUpStage.setScene(scene);
-			//primaryStage.initStyle(StageStyle.UNDECORATED);
-			SingUpStage.setTitle("TASK TO DO");
-			SingUpStage.setMaxWidth(750);
-			SingUpStage.setMaxHeight(535);
-			SingUpStage.setMinWidth(750);
-			SingUpStage.setMinHeight(535);
-			SingUpStage.show();
-		}catch (Exception e) {
-			e.printStackTrace();
-			e.getCause();
-		}	
-	}
+		BorderPane root = (BorderPane)FXMLLoader.load(Main.class.getResource("/controllers/Task.fxml"));
+		stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+		Scene scene = new Scene(root, 1000, 610);
+		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+		stage.setScene(scene);
+		//primaryStage.initStyle(StageStyle.UNDECORATED);
+		stage.setTitle("TASK TO DO");
+		stage.setMaxWidth(1000);
+		stage.setMaxHeight(610);
+		stage.setMinWidth(1000);
+		stage.setMinHeight(610);
+		stage.show();
+		
+}
 
 	@Override
 	public void initialize(URL url, ResourceBundle resourceBundle) {
