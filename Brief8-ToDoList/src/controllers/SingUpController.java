@@ -81,7 +81,7 @@ public class SingUpController implements Initializable {
 
 			BorderPane root = (BorderPane)FXMLLoader.load(Main.class.getResource("/controllers/SingIn.fxml"));
 			stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-			Scene scene = new Scene(root, 740, 470);
+			Scene scene = new Scene(root, 750, 480);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			stage.setScene(scene);
 			//primaryStage.initStyle(StageStyle.UNDECORATED);

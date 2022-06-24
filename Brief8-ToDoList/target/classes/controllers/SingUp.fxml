@@ -11,11 +11,11 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane minHeight="530.0" minWidth="750.0" prefHeight="530.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SingUpController">
+<BorderPane maxHeight="530.0" maxWidth="750.0" minHeight="530.0" minWidth="750.0" prefHeight="530.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SingUpController">
    <top>
       <AnchorPane maxHeight="530.0" maxWidth="750.0" minHeight="530.0" minWidth="750.0" prefHeight="530.0" prefWidth="750.0" styleClass="pane" stylesheets="@application.css" BorderPane.alignment="CENTER">
          <children>
-            <AnchorPane layoutX="402.0" layoutY="76.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="421.0" prefWidth="311.0" styleClass="login-signup">
+            <AnchorPane layoutX="402.0" layoutY="60.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="421.0" prefWidth="311.0" styleClass="login-signup">
                <children>
                   <Label layoutX="125.0" layoutY="43.0" text="Sign up">
                      <font>
@@ -44,19 +44,19 @@
                   </Button>
                </children>
             </AnchorPane>
-            <ImageView fx:id="ToDoImgView" fitHeight="336.0" fitWidth="385.0" layoutX="7.0" layoutY="214.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="ToDoImgView" fitHeight="336.0" fitWidth="385.0" layoutX="7.0" layoutY="198.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/Todolist.jpg" />
                </image>
             </ImageView>
-            <Label layoutX="60.0" layoutY="95.0" text="Welcome to TASK TO DO" textFill="#4b8cf3">
+            <Label layoutX="60.0" layoutY="79.0" text="Welcome to TASK TO DO" textFill="#4b8cf3">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <Label layoutX="98.0" layoutY="130.0" text="Your best daily task manager" />
+            <Label layoutX="98.0" layoutY="114.0" text="Your best daily task manager" />
             <Circle fill="WHITE" layoutX="561.0" layoutY="67.0" radius="40.0" stroke="WHITE" strokeType="INSIDE" />
-            <ImageView fx:id="SingUpImg" fitHeight="81.0" fitWidth="83.0" layoutX="522.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="SingUpImg" fitHeight="81.0" fitWidth="83.0" layoutX="522.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/ProfilePic.png" />
                </image>

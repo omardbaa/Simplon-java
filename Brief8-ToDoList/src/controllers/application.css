@@ -18,25 +18,17 @@
  .fild-txt{
  
  -fx-background-color: #ffffff;
-  -fx-border-radius: 3px;
-  -fx-border-color:#0080ff;
+ -fx-background-radius:15px;
+  -fx-border-radius: 15px;
+  -fx-border-color:#306beb ;
   -fx-border-width: 1px;
 
  }
  
- .background-account{
-  -fx-background-image: url("/application/images/SoussTalent.png");
- -fx-background-size: 280 380;
- -fx-background-position: center center;
- -fx-background-color: #ffffff ;
- 
- 
- }
- 
- 
- 
+
  
 .NewTask{
+	 -fx-cursor:hand ;
 	-fx-border-color: transparent;
 	-fx-background-color: transparent;
     -fx-graphic: url(../images/add.png);
@@ -45,6 +37,7 @@
  
 
 .SingUpBtn{
+	 -fx-cursor:hand ;
 	-fx-background-color: transparent ;
 	-fx-border-color: transparent;
 	-fx-text-fill: #306beb;
@@ -71,10 +64,41 @@
 }
 
 .login-submit{
+	 -fx-cursor:hand ;
 	-fx-background-color: #306beb ;
 	-fx-text-fill: #ffffff;
 	 
 }
+.hover{
+	-fx-cursor:hand ;
+}
 
+
+.btn:hover{
+    -fx-cursor:hand ;
+}
+.table-view {
+    -fx-background-radius:14 14 0 0;
+    
+    }
+.table-view .column-header-background{
+        -fx-background-color: #306beb;
+        -fx-background-radius:14;
+        -fx-background-insets: 0 0 10 0;
+       
+        
+        
+    }
+.table-view .column-header, .table-view .filler{
+        -fx-size:50px;
+        -fx-border-width: 0 0 10 0;
+        -fx-background-color:transparent;
+        
+    }
+    
+.table-view .column-header .label {
+        -fx-text-fill: white ;
+        -fx-font-size: 16;
+    }
 
 

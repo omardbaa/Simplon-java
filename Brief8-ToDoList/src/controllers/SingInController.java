@@ -96,7 +96,29 @@ public class SingInController implements Initializable{
 		stage.show();
 		
 }
-
+	// Event Listener on Button[#SingupSubmit].onAction
+		@FXML
+		public void SingupStageForm(ActionEvent event) throws IOException {
+			
+				BorderPane root = (BorderPane)FXMLLoader.load(Main.class.getResource("/controllers/SingUp.fxml"));
+				stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+				Scene scene = new Scene(root,760, 540);
+				scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+				stage.setScene(scene);
+				//primaryStage.initStyle(StageStyle.UNDECORATED);
+				stage.setTitle("Create new account");
+				stage.setMaxWidth(750);
+				stage.setMaxHeight(535);
+				stage.setMinWidth(750);
+				stage.setMinHeight(535);
+				stage.show();
+			
+			
+				
+				
+				
+				
+		}
 	@Override
 	public void initialize(URL url, ResourceBundle resourceBundle) {
 		

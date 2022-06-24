@@ -38,6 +38,12 @@
   
   </dependency>
   
+  <dependency>
+    <groupId>de.jensd</groupId>
+    <artifactId>fontawesomefx</artifactId>
+    <version>8.2</version>
+</dependency>
+
   </dependencies>
   
   

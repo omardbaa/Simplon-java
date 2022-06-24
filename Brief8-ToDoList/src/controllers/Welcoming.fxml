@@ -10,7 +10,6 @@
 <?import javafx.scene.shape.QuadCurve?>
 <?import javafx.scene.text.Font?>
 
-
 <BorderPane maxHeight="250.0" maxWidth="700.0" minHeight="250.0" minWidth="700.0" prefHeight="250.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.WelcomingController">
    <center>
       <AnchorPane maxHeight="250.0" maxWidth="700.0" minHeight="250.0" minWidth="700.0" prefHeight="250.0" prefWidth="700.0">

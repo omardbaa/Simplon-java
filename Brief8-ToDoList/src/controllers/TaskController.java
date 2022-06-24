@@ -95,10 +95,10 @@ public class TaskController implements Initializable {
 	
 		@Override
 		public void initialize(URL arg0, ResourceBundle arg1) {
-			ChoiceBxStatus.getItems().addAll(TaskStatus);
-			ChoiceBxStatus.setOnAction(this::getTaskStatus);
-			ChoiceBxCategory.getItems().addAll(Category);
-			ChoiceBxCategory.setOnAction(this::getCategory);
+//			ChoiceBxStatus.getItems().addAll(TaskStatus);
+//			ChoiceBxStatus.setOnAction(this::getTaskStatus);
+//			ChoiceBxCategory.getItems().addAll(Category);
+//			ChoiceBxCategory.setOnAction(this::getCategory);
 			viewTasks();
 		}
 		
@@ -111,7 +111,7 @@ public class TaskController implements Initializable {
 			DeadlineColumn.setCellValueFactory(new PropertyValueFactory<Task, String>("Deadline"));
 			CategoryColumn.setCellValueFactory(new PropertyValueFactory<Task, String>("Category"));
 			TablleView.setItems(data);
-			 clear();
+			
              TablleView.refresh(); 
            
 		}
@@ -138,16 +138,6 @@ public class TaskController implements Initializable {
 				ChoiceBxCategory.setValue(task.getCategory());
 			}
 		 
-		 //Update
-
-			@FXML
-			public void update(ActionEvent event) throws SQLException {
-				Task task = new Task(tfTitle.getText(),tfDescription.getText(),ChoiceBxStatus.getValue(), tfDeadline.getText(), ChoiceBxCategory.getValue());	
-				 taskDao.update( task); 
-				 viewTasks();
-				 TablleView.refresh();
-				 System.out.println("Task has been updated successfully" );
-			}
 		 
 		 
 			//Delete
@@ -171,7 +161,7 @@ public class TaskController implements Initializable {
 			
 			 void clear() {
 				 tfTitle.setText(null);
-				 tfDescription.setText(null);
+//				 tfDescription.setText(null);
 				 ChoiceBxStatus.setValue(null);
 				 tfDeadline.setText(null);
 				 ChoiceBxCategory.setValue(null);
@@ -205,5 +195,25 @@ public class TaskController implements Initializable {
 				stage.show();
 				
 		}
+		
+		
+		
+		
+		public void UpdateTask(ActionEvent event) throws IOException {
+			
+			BorderPane root = (BorderPane)FXMLLoader.load(Main.class.getResource("/controllers/UpdateTask.fxml"));
+			stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+			Scene scene = new Scene(root, 700, 220);
+			stage.setScene(scene);
+			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			//primaryStage.initStyle(StageStyle.UNDECORATED);
+			stage.setTitle("Update Task");
+			stage.setMaxWidth(700);
+			stage.setMaxHeight(220);
+			stage.setMinWidth(700);
+			stage.setMinHeight(220);
+			stage.show();
+			
+	}
 
 }

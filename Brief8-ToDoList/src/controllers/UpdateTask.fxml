@@ -10,9 +10,9 @@
 <?import javafx.scene.shape.QuadCurve?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="241.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AddTaskController">
+<BorderPane prefHeight="241.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.UpdateTaskController">
    <center>
-      <Pane prefHeight="252.0" prefWidth="700.0" BorderPane.alignment="CENTER">
+      <Pane prefHeight="259.0" prefWidth="700.0" BorderPane.alignment="CENTER">
          <children>
             <ChoiceBox fx:id="ChoiceBxStatus" layoutX="119.0" layoutY="139.0" prefHeight="25.0" prefWidth="210.0" stylesheets="@application.css">
                <styleClass>
@@ -29,11 +29,6 @@
             <TextField fx:id="tfDescription" layoutX="120.0" layoutY="91.0" prefHeight="25.0" prefWidth="213.0" promptText="Task description" styleClass="fild-txt" stylesheets="@application.css" />
             <Label layoutX="20.0" layoutY="95.0" text="Add description :" />
             <Label layoutX="374.0" layoutY="95.0" text="Select Category :" />
-            <Button fx:id="btCreate" layoutX="598.0" layoutY="143.0" mnemonicParsing="false" onAction="#create" prefHeight="29.0" prefWidth="77.0" styleClass="login-submit" stylesheets="@application.css" text="Create">
-               <font>
-                  <Font name="Century Gothic Bold" size="13.0" />
-               </font>
-            </Button>
             <TextField fx:id="tfDeadline" layoutX="473.0" layoutY="39.0" prefHeight="26.0" prefWidth="212.0" promptText="YYYY-MM-DD" styleClass="fild-txt" stylesheets="@application.css" />
             <ChoiceBox fx:id="ChoiceBxCategory" layoutX="474.0" layoutY="89.0" prefHeight="25.0" prefWidth="213.0" stylesheets="@application.css">
                <styleClass>
@@ -50,6 +45,11 @@
             <QuadCurve controlX="6.399993896484375" controlY="-45.0" endX="63.999969482421875" endY="-231.0" fill="#fc9526" layoutX="101.0" layoutY="82.0" startX="-210.8000030517578" startY="-45.0" stroke="TRANSPARENT" strokeType="INSIDE" />
             <QuadCurve controlX="-138.4000244140625" controlY="-121.75213623046875" endX="84.4000244140625" endY="-86.59999084472656" fill="DODGERBLUE" layoutX="778.0" layoutY="304.0" startX="-218.4000244140625" startY="-52.399993896484375" stroke="TRANSPARENT" strokeType="INSIDE" />
             <QuadCurve controlX="-130.4000244140625" controlY="-132.0" endX="130.4000244140625" endY="-120.59999084472656" fill="#fc9526" layoutX="778.0" layoutY="304.0" startX="-180.800048828125" startY="-30.600006103515625" stroke="TRANSPARENT" strokeType="INSIDE" />
+            <Button fx:id="btnUpdate" layoutX="597.0" layoutY="143.0" mnemonicParsing="false" onAction="#update" prefHeight="30.0" prefWidth="79.0" styleClass="login-submit" stylesheets="@application.css" text="Update">
+               <font>
+                  <Font name="Century Gothic Bold" size="13.0" />
+               </font>
+            </Button>
          </children>
       </Pane>
    </center>

@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -11,16 +9,16 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.QuadCurve?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.TaskController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="569.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.TaskController">
    <center>
-      <AnchorPane prefHeight="610.0" prefWidth="950.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="546.0" prefWidth="1000.0" stylesheets="@application.css" BorderPane.alignment="CENTER">
          <children>
-            <ChoiceBox fx:id="ChoiceBxStatus" layoutX="430.0" layoutY="208.0" prefHeight="25.0" prefWidth="166.0" />
-            <VBox layoutX="20.0" layoutY="281.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="280.0" prefWidth="944.0">
+            <VBox layoutX="20.0" layoutY="213.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="299.0" prefWidth="944.0">
                <children>
-                  <TableView fx:id="TablleView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="280.0" prefWidth="945.0">
+                  <TableView fx:id="TablleView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="282.0" prefWidth="946.0">
                     <columns>
                       <TableColumn fx:id="TitleColumn" prefWidth="117.6000007390976" text="Title" />
                       <TableColumn fx:id="DescriptionColumn" prefWidth="285.6000289916992" text="Description" />
@@ -31,35 +29,23 @@
                   </TableView>
                </children>
             </VBox>
-            <Label alignment="CENTER" layoutX="385.0" layoutY="149.0" prefHeight="25.0" prefWidth="252.0" text="Select The status of the task">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-            <TextField fx:id="tfTitle" layoutX="24.0" layoutY="150.0" prefHeight="25.0" prefWidth="151.0" />
-            <Label layoutX="52.0" layoutY="124.0" text="Insert Title" />
-            <TextField fx:id="tfDescription" layoutX="185.0" layoutY="215.0" prefHeight="25.0" prefWidth="227.0" />
-            <Label layoutX="250.0" layoutY="165.0" text="Add description" />
-            <Label layoutX="819.0" layoutY="166.0" text="Add Category" />
-            <Button fx:id="btnUpdate" layoutX="229.0" layoutY="76.0" mnemonicParsing="false" onAction="#update" prefHeight="38.0" prefWidth="100.0" styleClass="blue-btn" text="Update">
+            <TextField fx:id="tfTitle" layoutX="121.0" layoutY="171.0" prefHeight="25.0" prefWidth="151.0" promptText="Isert Task name" />
+            <Button fx:id="btnUpdate" layoutX="764.0" layoutY="159.0" mnemonicParsing="false" onAction="#UpdateTask" prefHeight="35.0" prefWidth="88.0" styleClass="login-submit" stylesheets="@application.css" text="Update">
                <font>
                   <Font name="Century Gothic Bold" size="13.0" />
                </font>
             </Button>
-            <Button fx:id="btndelete" layoutX="450.0" layoutY="76.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#delete" prefHeight="38.0" prefWidth="100.0" styleClass="blue-btn" text="Delete">
+            <Button fx:id="btndelete" layoutX="869.0" layoutY="159.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#delete" prefHeight="35.0" prefWidth="86.0" styleClass="login-submit" stylesheets="@application.css" text="Delete">
                <font>
                   <Font name="Century Gothic Bold" size="16.0" />
                </font>
             </Button>
-            <Button fx:id="btnread" layoutX="664.0" layoutY="76.0" mnemonicParsing="false" onAction="#read" prefHeight="38.0" prefWidth="100.0" styleClass="blue-btn" text="Search">
+            <Button fx:id="btnread" layoutX="290.0" layoutY="166.0" mnemonicParsing="false" onAction="#read" prefHeight="28.0" prefWidth="83.0" styleClass="login-submit" stylesheets="@application.css" text="Search">
                <font>
                   <Font name="Century Gothic Bold" size="13.0" />
                </font>
             </Button>
-            
-            <TextField fx:id="tfDeadline" layoutX="618.0" layoutY="206.0" prefHeight="26.0" prefWidth="144.0" />
-            <ChoiceBox fx:id="ChoiceBxCategory" layoutX="795.0" layoutY="205.0" prefHeight="25.0" prefWidth="166.0" />
-            <Button fx:id="NewTask" layoutX="20.0" layoutY="221.0" mnemonicParsing="false" onAction="#NewTask" prefHeight="15.0" prefWidth="15.0" styleClass="NewTask" stylesheets="@application.css">
+            <Button fx:id="NewTask" layoutX="20.0" layoutY="154.0" mnemonicParsing="false" onAction="#NewTask" prefHeight="15.0" prefWidth="15.0" styleClass="NewTask" stylesheets="@application.css">
                 <graphic>
         <ImageView fitHeight="40.0" fitWidth="40.0">
             <Image url="@../images/add.png" />
@@ -69,6 +55,15 @@
         </ImageView>
     </graphic>
     </Button>
+            <ImageView fitHeight="105.0" fitWidth="151.0" layoutX="461.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/TASK2DO.png" />
+               </image>
+            </ImageView>
+            <QuadCurve controlX="138.60000610351562" controlY="79.60000610351562" endX="200.99996948242188" endY="-146.0" fill="DODGERBLUE" layoutX="99.0" layoutY="18.0" startX="-244.60000610351562" startY="20.40001678466797" stroke="TRANSPARENT" strokeType="INSIDE" />
+            <QuadCurve controlX="-16.199996948242188" controlY="86.40001678466797" endX="93.79995727539062" endY="-171.1999969482422" fill="#fc9526" layoutX="109.0" layoutY="28.0" startX="-219.8000030517578" startY="32.40000915527344" stroke="TRANSPARENT" strokeType="INSIDE" />
+            <QuadCurve controlX="-16.199996948242188" controlY="86.40001678466797" endX="93.79995727539062" endY="-171.1999969482422" fill="#fc9526" startX="-219.8000030517578" startY="32.40000915527344" stroke="TRANSPARENT" strokeType="INSIDE" />
+            <QuadCurve controlX="-219.800048828125" controlY="-104.86669921875" endX="-55.86669921875" endY="43.4000244140625" fill="#fc9526" layoutX="855.0" layoutY="563.0" startX="-860.3333740234375" startY="43.4000244140625" stroke="TRANSPARENT" strokeType="INSIDE" />
          </children>
       </AnchorPane>
    </center>
