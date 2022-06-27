@@ -99,15 +99,15 @@ public void TasksDashboard(ActionEvent event) throws IOException {
 			
 				BorderPane root = (BorderPane)FXMLLoader.load(Main.class.getResource("/controllers/Task.fxml"));
 				stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-				Scene scene = new Scene(root, 1000, 610);
+				Scene scene = new Scene(root, 1000, 574);
 				scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 				stage.setScene(scene);
 				//primaryStage.initStyle(StageStyle.UNDECORATED);
 				stage.setTitle("TASK TO DO");
 				stage.setMaxWidth(1000);
-				stage.setMaxHeight(610);
+				stage.setMaxHeight(574);
 				stage.setMinWidth(1000);
-				stage.setMinHeight(610);
+				stage.setMinHeight(574);
 				stage.show();
 				
 		}

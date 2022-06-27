@@ -7,7 +7,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.shape.QuadCurve?>
 <?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="250.0" maxWidth="700.0" minHeight="250.0" minWidth="700.0" prefHeight="250.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.WelcomingController">
@@ -16,31 +15,32 @@
          <children>
             <Pane layoutY="25.0" prefHeight="252.0" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <ImageView fitHeight="84.0" fitWidth="155.0" layoutX="290.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="252.0" fitWidth="700.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/Welcomig-BG.jpg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="84.0" fitWidth="155.0" layoutX="282.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/TASK2DO.png" />
                      </image>
                   </ImageView>
-                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="59.0" layoutY="132.0" prefHeight="68.0" prefWidth="583.0" text="Welcome to TASK TO DO, that gives you the the ability to manage your tasks">
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="51.0" layoutY="109.0" prefHeight="68.0" prefWidth="583.0" text="Welcome to TASK TO DO, that gives you the the ability to manage your tasks">
                      <font>
                         <Font name="Century Gothic" size="14.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="327.0" layoutY="200.0" prefHeight="36.0" prefWidth="69.0" text="Or">
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="319.0" layoutY="177.0" prefHeight="36.0" prefWidth="69.0" text="Or">
                      <font>
                         <Font name="Century Gothic" size="14.0" />
                      </font>
                   </Label>
-                  <QuadCurve controlX="175.60000610351562" controlY="-75.39999389648438" endX="34.80003356933594" endY="-149.0" fill="DODGERBLUE" layoutX="78.0" layoutY="93.0" startX="-210.8000030517578" startY="-45.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                  <QuadCurve controlX="6.399993896484375" controlY="-45.0" endX="63.999969482421875" endY="-231.0" fill="#fc9526" layoutX="88.0" layoutY="103.0" startX="-210.8000030517578" startY="-45.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                  <QuadCurve controlX="-97.60003662109375" controlY="-143.1999969482422" endX="84.4000244140625" endY="-86.59999084472656" fill="DODGERBLUE" layoutX="731.0" layoutY="332.0" startX="-215.20001220703125" startY="-44.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                  <QuadCurve controlX="-99.0" controlY="-175.99998474121094" endX="130.4000244140625" endY="-120.59999084472656" fill="#fc9526" layoutX="741.0" layoutY="342.0" startX="-158.79998779296875" startY="-24.4000244140625" stroke="TRANSPARENT" strokeType="INSIDE" />
-                  <Button fx:id="LogInBtn" layoutX="256.0" layoutY="201.0" mnemonicParsing="false" onAction="#LogInStageForm" styleClass="SingUpBtn" stylesheets="@application.css" text="Sign In" textFill="#2486c7">
+                  <Button fx:id="LogInBtn" layoutX="248.0" layoutY="178.0" mnemonicParsing="false" onAction="#LogInStageForm" styleClass="SingUpBtn" stylesheets="@application.css" text="Sign In" textFill="#2486c7">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Button>
-                  <Button fx:id="SingupSubmit" layoutX="414.0" layoutY="201.0" mnemonicParsing="false" onAction="#SingupStageForm" styleClass="SingUpBtn" stylesheets="@application.css" text="Sign up" textFill="#2486c7">
+                  <Button fx:id="SingupSubmit" layoutX="406.0" layoutY="178.0" mnemonicParsing="false" onAction="#SingupStageForm" styleClass="SingUpBtn" stylesheets="@application.css" text="Sign up" textFill="#2486c7">
                      <font>
                         <Font size="15.0" />
                      </font>

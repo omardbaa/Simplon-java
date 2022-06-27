@@ -43,9 +43,7 @@ public class TaskController implements Initializable {
 	@FXML
 	private ChoiceBox<String> ChoiceBxCategory;
 	
-	private String [] TaskStatus = {"On progress", "Done","Not yet" };
-	private String [] Category = {"Presentation", "Standby topic","Brief" ,"Research "};
-	
+
 	@FXML
 	private  TableView<Task>   TablleView;
 	@FXML
@@ -183,15 +181,15 @@ public class TaskController implements Initializable {
 			
 				BorderPane root = (BorderPane)FXMLLoader.load(Main.class.getResource("/controllers/AddTask.fxml"));
 				stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-				Scene scene = new Scene(root, 700, 220);
+				Scene scene = new Scene(root);
 				stage.setScene(scene);
 				scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 				//primaryStage.initStyle(StageStyle.UNDECORATED);
 				stage.setTitle("New Task");
 				stage.setMaxWidth(700);
-				stage.setMaxHeight(220);
+				stage.setMaxHeight(252);
 				stage.setMinWidth(700);
-				stage.setMinHeight(220);
+				stage.setMinHeight(252);
 				stage.show();
 				
 		}
@@ -203,15 +201,15 @@ public class TaskController implements Initializable {
 			
 			BorderPane root = (BorderPane)FXMLLoader.load(Main.class.getResource("/controllers/UpdateTask.fxml"));
 			stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-			Scene scene = new Scene(root, 700, 220);
+			Scene scene = new Scene(root);
 			stage.setScene(scene);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			//primaryStage.initStyle(StageStyle.UNDECORATED);
 			stage.setTitle("Update Task");
 			stage.setMaxWidth(700);
-			stage.setMaxHeight(220);
+			stage.setMaxHeight(252);
 			stage.setMinWidth(700);
-			stage.setMinHeight(220);
+			stage.setMinHeight(252);
 			stage.show();
 			
 	}
