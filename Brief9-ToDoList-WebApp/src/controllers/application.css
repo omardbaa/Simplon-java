@@ -1,0 +1,104 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+.parent{
+	
+	-fx-background-color: transparent ;
+}
+
+.Label{
+	-fx-font-size: 14;
+	-fx-font-family: "Verdana";
+	-fx-text-fill: "whitesmoke";
+}
+
+ 
+ .pane {
+-fx-background-color: rgb(255, 255, 255) ;
+ }
+ 
+ .fild-txt{
+ 
+ -fx-background-color: #ffffff;
+ -fx-background-radius:15px;
+  -fx-border-radius: 15px;
+  -fx-border-color:#306beb ;
+  -fx-border-width: 1px;
+
+ }
+ 
+
+ 
+.NewTask{
+	 -fx-cursor:hand ;
+	-fx-border-color: transparent;
+	-fx-background-color: transparent;
+    -fx-graphic: url(../images/add.png);
+
+}
+ 
+
+.SingUpBtn{
+	 -fx-cursor:hand ;
+	-fx-background-color: transparent ;
+	-fx-border-color: transparent;
+	-fx-text-fill: #306beb;
+}
+.white-pane{
+	-fx-background-image: url("/application/images/SoussTalent.png");
+	-fx-background-size: 281 386;
+	-fx-background-position: center center;
+	
+}
+
+
+.tf_box{
+	-fx-background-color: transparent ;
+	-fx-border-color: #DEDEE4;
+	-fx-border-width: 0px 0px 1px 0px;
+}
+
+.login-signup{
+	-fx-border-color: #306beb;
+	-fx-border-radius: 20px;
+	-fx-border-width: 3px 3px 3px 3px;
+	-fx-text-fill: #000000;
+}
+
+.login-submit{
+	 -fx-cursor:hand ;
+	-fx-background-color: #306beb ;
+	-fx-text-fill: #ffffff;
+	 
+}
+.hover{
+	-fx-cursor:hand ;
+}
+
+
+.btn:hover{
+    -fx-cursor:hand ;
+}
+.table-view {
+    -fx-background-radius:14 14 0 0;
+    
+    }
+.table-view .column-header-background{
+        -fx-background-color: #306beb;
+        -fx-background-radius:14;
+        -fx-background-insets: 0 0 10 0;
+       
+        
+        
+    }
+.table-view .column-header, .table-view .filler{
+        -fx-size:50px;
+        -fx-border-width: 0 0 10 0;
+        -fx-background-color:transparent;
+        
+    }
+    
+.table-view .column-header .label {
+        -fx-text-fill: white ;
+        -fx-font-size: 16;
+    }
+
+
