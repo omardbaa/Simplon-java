@@ -60,7 +60,6 @@ public class CreateTask extends HttpServlet {
 	            System.out.println("Task added successfuly");
 	            response.sendRedirect("TasksDashboard.jsp");
 	        } catch (Exception e) {
-	            // TODO Auto-generated catch block
 	            e.printStackTrace();
 	            System.out.println("ERROR");
 

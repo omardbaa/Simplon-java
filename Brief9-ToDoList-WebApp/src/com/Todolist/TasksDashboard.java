@@ -40,22 +40,22 @@ public class TasksDashboard extends HttpServlet {
 
 		try {
 			switch (Action) {
-			case "NewTask":
+			case "/NewTask":
 				showNewForm(request, response);
 				break;
-			case "Create":
+			case "/Create":
 				createTask(request, response);
 				break;
-			case "Delete":
+			case "/Delete":
 				deleteTask(request, response);
 				break;
-			case "Edit":
+			case "/Edit":
 				showEditForm(request, response);
 				break;
-			case "Update":
+			case "/Update":
 				UpdateTask(request, response);
 				break;
-			default:
+			case "/ListTask":
 				ListTask(request, response);
 				break;
 			}
@@ -68,13 +68,15 @@ public class TasksDashboard extends HttpServlet {
 			throws SQLException, IOException, ServletException {
 		List<Task> ListTask = taskDao.selectAll();
 		request.setAttribute("ListTask", ListTask);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("TasksDashboard.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("ListTask");
 		dispatcher.forward(request, response);
+		response.sendRedirect("TasksDashboard.jsp");
+		
 	}
 
 	private void showNewForm(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		RequestDispatcher dispatcher = request.getRequestDispatcher("TasksDashboard.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("CreateTask.jsp");
 		dispatcher.forward(request, response);
 	}
 
@@ -97,7 +99,7 @@ public class TasksDashboard extends HttpServlet {
 	        String Category = request.getParameter("Category");
 		Task task = new Task(Title, Description, Status, Deadline, Category);
 		taskDao.create(task);
-		response.sendRedirect("list");
+		response.sendRedirect("ListTask");
 	}
 
 	private void UpdateTask(HttpServletRequest request, HttpServletResponse response) 
@@ -109,7 +111,7 @@ public class TasksDashboard extends HttpServlet {
 	        String Category = request.getParameter("Category");
 		Task task = new Task(Title, Description, Status, Deadline, Category);
 		taskDao.update(task);
-		response.sendRedirect("list");
+		response.sendRedirect("ListTask");
 	}
 
 	private void deleteTask(HttpServletRequest request, HttpServletResponse response) 
@@ -117,7 +119,7 @@ public class TasksDashboard extends HttpServlet {
 		Task task = new Task();
 		String Title = request.getParameter("Title");
 		taskDao.delete(task);
-		response.sendRedirect("list");
+		response.sendRedirect("ListTask");
 
 	}
 }

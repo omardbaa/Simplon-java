@@ -87,7 +87,7 @@ public boolean select(User user ) {
 		            preparedStatement.setString(1, user.getUserName());
 		            preparedStatement.setString(2, user.getPassWord());
 
-		            System.out.println(preparedStatement);
+//		            System.out.println(preparedStatement);
 		            ResultSet rs = preparedStatement.executeQuery();
 		            status = rs.next();
 				}

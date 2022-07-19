@@ -10,6 +10,10 @@
     <servlet-name>SignUp</servlet-name>
     <servlet-class>com.Todolist.SignUp</servlet-class>
   </servlet>
+   <servlet-mapping>
+    <servlet-name>TasksDashboard</servlet-name>
+    <url-pattern>/TasksDashboard/ListTask</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
     <servlet-name>SignUp</servlet-name>
     <url-pattern>/SignUp</url-pattern>

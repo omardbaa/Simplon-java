@@ -6,25 +6,30 @@
 <title>Tasks Dashboard</title>
 </head>
 <body>
-
-	
-	<br>
+<header>
+	<nav class="navbar navbar-expand-md navbar-dark"
+		style="background-color: #6F859D">
+		<div>
+			<h2 class="navbar-brand"> Dashboard<h2>
+			
+		</div>
+	</nav>
+</header>
 
 	<div class="row">
-		<!-- <div class="alert alert-success" *ngIf='message'>{{message}}</div> -->
 
 		<div class="container">
-			<h3 class="text-center">Tasks</h3>
+			<h3 class="text-center">TASK TO DO </h3>
 			
 			<div class="container text-left">
-
 				<a href="CreateTask.jsp">Create new Task</a>
 			</div>
-		
+			
 			<div class="container text-left">
-
 				<a href="UpdateTask.jsp">Update Task</a>
 			</div>
+		
+			<br>
 			<br>
 			<table class="table table-bordered">
 				<thead>
@@ -40,17 +45,17 @@
 				</thead>
 				<tbody>
 				
-					<c:forEach var="Task" items="${ListTask}">
+					<c:forEach var="task" items="${ListTask}">
 
 						<tr>
-							<td><c:out value="${Task.Title}" /></td>
-							<td><c:out value="${Task.Description}" /></td>
-							<td><c:out value="${Task.Status}" /></td>
+							<td><c:out value="${task.Title}" /></td>
+							<td><c:out value="${task.Description}" /></td>
+							<td><c:out value="${task.Status}" /></td>
 							<td><c:out value="${task.Category}" /></td>
-							<td><c:out value="${Task.Deadline}" /></td>
-							<td><a href="Edit?id=<c:out value="${Task.Title}" />">Edit</a>
+							<td><c:out value="${task.Deadline}" /></td>
+							<td><a href="Edit?Title=<c:out value="${task.Title}" />">Edit</a>
 								&nbsp;&nbsp;&nbsp;&nbsp; <a
-								href="Delete?id=<c:out value="${Task.task}"/>">Delete</a></td>
+								href="Delete?Title=<c:out value="${task.Title}"/>">Delete</a></td>
 						</tr>
 					</c:forEach>
 		
@@ -59,5 +64,7 @@
 			</table>
 		</div>
 	</div>
+	
+	<jsp:include page="/Footer.jsp"></jsp:include>
 </body>
 </html>

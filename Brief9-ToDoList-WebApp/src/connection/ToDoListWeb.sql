@@ -31,9 +31,10 @@ INSERT INTO categories (Category) Values ('Standby topic');
 INSERT INTO categories (Category) Values ('Research');
 INSERT INTO categories (Category) Values ('Presentation')
 INSERT INTO Userr (UserName, FirstName, LastName, PassWord) Values ('omar-dbaa', 'omar','dbaa', '123abc');
+         
+DELETE  from Task where title = 'New Task';
+DELETE  from Userr where username = 'dbaa123';
 
-
-DELETE  from Task where description = 'create Frontend for brief 8 using Java JEE';
 
 select * from Userr
 select * from Task
