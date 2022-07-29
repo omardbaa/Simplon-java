@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Gestion des employes</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" 
+integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap-theme.min.css" 
+integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" 
+integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+	
+</head>
+<body>
+
+	<div class="container-fluid">
+		<div class="panel panel-primary">
+			<div class="panel-heading">Liste des employes</div>
+			<hr>
+			<a th:href = "@{/showNewEmployeForm}" class="btn btn-primary col-md"><i class="bi bi-plus-square-dotted"></i>Ajouter </a>
+			<div class="panel-body">
+				<form>
+					<table  class = "table table-striped table-responsive-md">
+			<thead>
+				<tr>
+					<th>
+						<a th:href="@{'/page/' + ${currentPage} + '?sortField=nom&sortDir=' + ${reverseSortDir}}">
+							Nom </a>
+					</th>
+					<th>
+					<a th:href="@{'/page/' + ${currentPage} + '?sortField=prenom&sortDir=' + ${reverseSortDir}}">
+							Prenom</a>
+					</th>
+					<th>
+					<a th:href="@{'/page/' + ${currentPage} + '?sortField=email&sortDir=' + ${reverseSortDir}}">
+							Email</a>
+					</th>
+					
+					<th>
+					<a th:href="@{'/page/' + ${currentPage} + '?sortField=telephone&sortDir=' + ${reverseSortDir}}">
+							Telephone</a>
+					</th>
+					
+					<th>
+					<a th:href="@{'/page/' + ${currentPage} + '?sortField=adresse&sortDir=' + ${reverseSortDir}}">
+							Adresse</a>
+					</th>
+					
+					<th>
+					<a th:href="@{'/page/' + ${currentPage} + '?sortField=salaire&sortDir=' + ${reverseSortDir}}">
+							Salaire</a>
+					</th>
+					
+					<th>
+					<a th:href="@{'/page/' + ${currentPage} + '?sortField=dateNaissance&sortDir=' + ${reverseSortDir}}">
+							Date Naissance</a>
+					</th>
+					
+					<th>
+					<a th:href="@{'/page/' + ${currentPage} + '?sortField=statut&sortDir=' + ${reverseSortDir}}">
+							Statut</a>
+					</th>
+					
+					<th>
+					<a th:href="@{'/page/' + ${currentPage} + '?sortField=role&sortDir=' + ${reverseSortDir}}">
+							Role</a>
+					</th>
+					<th> Actions </th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="employee : ${listEmployees}">
+					<td th:text="${employe.nom}"></td>
+					<td th:text="${employe.prenom}"></td>
+					<td th:text="${employe.email}"></td>
+					<td th:text="${employe.telephone}"></td>
+					<td th:text="${employe.adresse}"></td>
+					<td th:text="${employe.salaire}"></td>
+					<td th:text="${employe.dateNaissance}"></td>
+					<td th:text="${employe.statut}"></td>
+					<td th:text="${employe.role}"></td>
+					
+					<td> <a th:href="@{/showFormForUpdate/{id}(id=${employee.id})}" class="btn btn-primary">Update</a>
+					    <a th:href="@{/deleteEmployee/{id}(id=${employee.id})}" class="btn btn-danger">Delete</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+				</form>
+		
+			</div>
+	</div>
+</div>
+</body>
+</html>

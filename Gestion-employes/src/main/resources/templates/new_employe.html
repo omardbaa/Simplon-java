@@ -1,0 +1,60 @@
+4<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="ISO-8859-1">
+<title>Gestion des employees</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" 
+integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" 
+integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+</head>
+<body>
+	<div class="container">
+		<h1>Gestion des employes</h1>
+		<div class="container-fluid">
+			<div class="panel panel-primary">
+				<div class="panel-heading">Nouveau employe</div>
+				<div class="panel-body">
+					<form action="#" data-th-action="@{/saveEmploye}" data-th-object="${employe}" accept-charset="utf-8" method="POST">
+				<input type="text" data-th-text="*{nom}"
+				placeholder="Nom" class="form-control mb-4 col-4">
+				<p></p>
+				<input type="text" data-th-text="*{prenom}"
+				placeholder="Prenom" class="form-control mb-4 col-4">
+				<p></p>
+				<input type="text" data-th-text="*{email}"
+				placeholder="Email" class="form-control mb-4 col-4">
+				<p></p>
+				<input type="text" data-th-text="*{telephone}"
+				placeholder="Telephone" class="form-control mb-4 col-4">
+				<p></p>
+				<input type="text" data-th-text="*{adresse}"
+				placeholder="Adresse" class="form-control mb-4 col-4">
+				<p></p>
+				<input type="text" data-th-text="*{salaire}"
+				placeholder="Salaire " class="form-control mb-4 col-4">
+				<p></p>
+				<input type="text" data-th-text="*{dateNaissance}"
+				placeholder="Date Naissance" class="form-control mb-4 col-4">
+				<p></p>
+				<input type="text" data-th-text="*{statut}"
+				placeholder="Statut" class="form-control mb-4 col-4">
+				<p></p>
+				<input type="text" data-th-text="*{role}"
+				placeholder="Role" class="form-control mb-4 col-4">
+				<p></p>
+				<button type="submit" class="btn btn-primary col-2"> Save Employe</button>
+		</form>
+		
+				</div>
+			</div>
+		</div>
+		
+		<hr>
+		
+		<a th:href = "@{/liste.html}"> Back to Employee List</a>
+	</div>
+</body>
+</html>

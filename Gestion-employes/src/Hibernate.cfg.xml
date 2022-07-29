@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!DOCTYPE hibernate-configuration SYSTEM
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+
+
+<hibernate-configuration>
+	<session-factory>
+	
+   		<property name="connection.url">jdbc:postgresql://localhost:5432/BDBRIEF10</property> <!-- BD Mane -->
+   		<property name="connection.driver_class">org.postgresql.Driver</property> <!-- DB Driver -->
+   		<property name="connection.username">postgres</property> <!-- DB User -->
+   		<property name="connection.password">123456</property> <!-- DB Password -->
+   		
+   		<property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property> <!-- DB Dialect -->
+   		<property name="hbm2ddl.auto">update</property> <!-- create / create-drop / update -->
+		
+		<property name="show_sql">true</property> <!-- Show SQL in console -->
+		<property name="format_sql">true</property> <!-- Show SQL formatted -->
+		
+		<mapping class="entities.Admin"/> 
+		<mapping class="entities.Employee"/> 
+		
+	</session-factory>
+</hibernate-configuration>

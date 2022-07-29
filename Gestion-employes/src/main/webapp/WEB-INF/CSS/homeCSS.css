@@ -1,0 +1,150 @@
+body{
+	margin:0;
+	color:#6a6f8c;
+	background:#c8c8c8;
+	font:600 12px/14px "Montserrat-SemiBold";
+}
+*,:after,:before{box-sizing:border-box}
+
+.styled-table {
+border-collapse: collapse;
+margin-top: 50px;
+max-width:90%;
+font-size: 0.9em;
+font-family: "Montserrat-SemiBold";
+box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+margin-left: auto;
+margin-right: auto;
+}
+
+.styled-table thead tr {
+background-color:rgba(40,57,101,.9) ;
+color: #ffffff;
+text-align: center;
+}
+
+.styled-table th,
+.styled-table td {
+padding: 12px 15px;
+}
+
+.styled-table tbody tr {
+border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+border-bottom: 2px solid rgba(40,57,101,.9);
+}
+
+.styled-table tbody tr.active-row {
+font-weight: bold;
+color: rgba(40,57,101,.9);
+text-align:center;
+}
+
+#add
+{
+	color: rgba(40,57,101,.9);
+	text-transform: uppercase;
+	font-family: "Montserrat";
+	font-size:10px;
+	background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none; 
+}
+
+tr td a img{
+height: 25px;
+padding:5px; 
+}
+
+tr td a:hover img {
+height: 35px;
+}
+
+.ccsticky-nav {
+display: flex;
+width: 100%;
+height: 50px;
+position: fixed; 
+top: 0;
+background: linear-gradient(#0078AF,rgba(40,57,101,.9));
+}
+
+.ccsticky-nav ul {
+padding: 5px;
+margin: 0 ;
+padding-left:20%;
+margin-right: 20px ;
+list-style: none;
+text-align: right;
+}
+
+.ccsticky-nav ul li {
+display: inline;
+margin: 0;
+}
+
+.ccsticky-nav ul li a {
+padding: 5px ;
+transition: all 0.2s ease;
+}
+
+.ccsticky-nav ul li a img{
+height: 28px;
+margin-top: 5px;
+}
+
+.ccsticky-nav ul li a:hover img {
+height: 40px;
+}
+
+#employee
+{
+	height: 48px;
+	
+	margin-left:18px; 
+	display:inline;
+}
+
+#logo
+{
+	display:inline;
+	color:#f3f3f3;
+	font: bold 'roboto';
+	font-size: 50px;
+	margin-top:15px;
+	margin-left:400px;
+	 
+}
+
+#user
+{
+	height: 35px;
+	margin-top:5px; 
+	margin-right:0px; 
+	display:inline;
+}
+
+.welcome
+{
+	display:inline;
+	color:#fff;
+	font: 13px 'Open Sans';
+	margin-top:10px;
+	margin-right:0px; 
+}
+
+header {
+width: 100%;
+border-bottom: 1px solid #ccc;
+height: 38px;
+text-align: left;
+}

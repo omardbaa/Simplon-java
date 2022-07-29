@@ -1,0 +1,148 @@
+body{
+	margin:0;
+	color:#f3f3f3;
+	background:#c8c8c8;
+	font:600 12px/14px "Montserrat-SemiBold";
+}
+*,:after,:before{box-sizing:border-box}
+
+.ccsticky-nav {
+display: flex;
+width: 100%;
+height: 50px;
+position: fixed; 
+top: 0;
+
+background: linear-gradient(#0078AF,rgba(40,57,101,.9));
+
+}
+
+.ccsticky-nav ul {
+padding: 5px;
+margin: 0 ;
+padding-left:20%;
+margin-right: 20px ;
+list-style: none;
+text-align: right;
+}
+
+.ccsticky-nav ul li {
+display: inline;
+margin: 0;
+}
+
+.ccsticky-nav ul li a {
+padding: 5px ;
+transition: all 0.2s ease;
+}
+
+.ccsticky-nav ul li a img{
+height: 28px;
+margin-top: 5px;
+}
+
+.ccsticky-nav ul li a:hover img {
+height: 40px;
+}
+
+#employee
+{
+	height: 48px;
+	
+	margin-left:18px; 
+	display:inline;
+}
+
+#logo
+{
+	display:inline;
+	color:#f3f3f3;
+	font: bold 'roboto';
+	font-size: 50px;
+	margin-top:15px;
+	margin-left:400px;
+	 
+}
+
+#user
+{
+	height: 35px;
+	margin-top:5px; 
+	margin-right:0px; 
+	display:inline;
+}
+
+.welcome
+{
+	display:inline;
+	color:#fff;
+	font: 13px 'Open Sans';
+	margin-top:10px;
+	margin-right:0px; 
+}
+
+header {
+width: 100%;
+border-bottom: 1px solid #ccc;
+height: 38px;
+text-align: left;
+}
+
+.control1{
+	width:100%;
+	margin:auto;
+	margin-top:60px;
+	margin-bottom:60px;
+	max-width:525px;
+	min-height:380px;
+	position:relative;
+	box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
+}
+
+.control2{
+	width:100%;
+	height:100%;
+	position:absolute;
+	padding:20px 70px 50px 70px;
+	background:rgba(40,57,101,.9);
+}
+
+.input
+{
+	width:100%;
+	color:#fff;
+	display:block;
+	border:none;
+	padding:15px 20px;
+	border-radius:25px;
+	background:rgba(255,255,255,.1);
+}
+
+::placeholder
+{
+	font:600 12px/14px "Montserrat-SemiBold";
+	color:#6a6f8c;
+}
+.Button
+{
+	text-align:right;
+}
+
+.btn2
+{
+	margin-left:10%;
+	height:40px;
+}
+#left
+{
+	margin-left:50%;
+}
+Button
+{
+	background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none; 
+}
