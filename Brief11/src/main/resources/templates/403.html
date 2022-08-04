@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:Layout="http://www.ultraq.net.nz/thyemleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<!-- layout:decorate="Header" -->
+
+<head>
+<meta charset="UTF-8">
+<title>403</title>
+
+
+<link rel="stylesheet" type="text/css"
+	href="/webjars/bootstrap/5.1.3/css/bootstrap.min.css">
+<script src="/webjars/bootstrap/5.1.3/js/bootstrap.bundel.js"> </script>
+
+</head>
+<body>
+<header>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="nav-link" th:href="@{/index}">Home</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    
+        
+        <div >
+  
+  			<a><span sec:authentication="name"> </span></a>
+     
+    		<a class="btn" th:href="@{/logout}">Logout</a>
+   
+  		</div>
+  </div>
+  
+</nav>
+
+
+
+
+<section layout:fragment="content1"> 
+
+
+</section>
+
+
+
+</header>
+
+
+
+	<div layout:fragment="Header">
+
+		<div class="container">
+		<h1> 403</h1>
+		<br>
+		<h2 class="text-danger">  You're not Authorized to Access to this Ressource </h2>
+		
+		</div>
+
+	</div>
+</body>
+</html>

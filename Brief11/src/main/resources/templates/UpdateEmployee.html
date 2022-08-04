@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html rel="stylesheet"	href="/webjars/bootstrap/5.1.3/css/bootstrap.min.css">
+<head>
+<meta charset="UTF-8">
+<title>Edit Employee</title>
+
+<link rel ="stylesheet" type="text/css" href="/webjars/bootstrap/5.1.3/css/bootstrap.min.css">
+<script src="/webjars/bootstrap/5.1.3/js/bootstrap.bundel.js"> </script>
+
+</head>
+<body>
+
+
+<header>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="nav-link" th:href="@{/index}">Home</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" th:href="@{/NewEmployee}">New Employee</a>
+        </li>
+      </ul>
+  
+    </div>
+    
+        
+        <div >
+  
+  			<a><span sec:authentication="name"> </span></a>
+     
+    		<a class="btn" th:href="@{/logout}">Logout</a>
+   
+  		</div>
+  </div>
+  
+</nav>
+
+<section layout:fragment="content1"> 
+
+
+</section>
+
+
+
+</header>
+
+
+<div layout:fragment="Header"> 
+
+<div class="col-md-6 offset-3"> 
+
+<form th:action="@{save}" method="post">
+
+<div>
+
+<label > ID: </label>
+<label th:text="${employee.id}"></label>
+<input class="form-control" type="hidden" name="id" th:value="${employee.id}">
+<br>
+
+<label for="Nom"> Nom</label>
+<input id="Nom" class="form-control" type="text" name="Nom" th:value="${employee.Nom}">
+<span class="text-danger" th:errors="${employee.Nom}"></span>
+<br>
+<label for="Prenom"> Prenom</label>
+<input id="Prenom" class="form-control" type="text" name="Prenom" th:value="${employee.Prenom}">
+<span class="text-danger" th:errors="${employee.Prenom}"></span>
+  
+  <br>
+  <label > Date Naissance</label>
+<input class="form-control" type="date" name="DatNaissance" th:value="${employee.DatNaissance}">
+<span th:errors="${employee.DatNaissance}"></span>
+  
+  <br>
+  <label for="Role"> Role</label>
+<input id="Role" class="form-control" type="text" name="Role" th:value="${employee.Role}">
+<span class="text-danger" th:errors="${employee.Role}"></span>
+  
+  <br>
+<button type="submit" class="btn btn-primary">Save </button>
+  
+
+
+</div>
+
+
+
+</form>
+
+</div>
+
+
+</div>
+
+</body>
+</html>

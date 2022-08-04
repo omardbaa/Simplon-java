@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en"xmlns:th="http://www.thymeleaf.org"
+xmlns:Layout="http://www.ultraq.net.nz/thyemleaf/layout"
+xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<!-- layout:decorate="Header" -->
+
+<head>
+<meta charset="UTF-8">
+<title>Dashboard</title>
+
+
+<link rel ="stylesheet" type="text/css" href="/webjars/bootstrap/5.1.3/css/bootstrap.min.css">
+<script src="/webjars/bootstrap/5.1.3/js/bootstrap.bundel.js"> </script>
+
+</head>
+<body>
+<header>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="nav-link" th:href="@{/index}">Home</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" th:href="@{/NewEmployee}">New Employee</a>
+        </li>
+      </ul>
+  
+    </div>
+    
+        
+        <div >
+  
+  			<a><span sec:authentication="name"> </span></a>
+     
+    		<a class="btn" th:href="@{/logout}">Logout</a>
+   
+  		</div>
+  </div>
+  
+</nav>
+
+
+
+
+<section layout:fragment="content1"> 
+
+
+</section>
+
+
+
+</header>
+
+
+<div layout:fragment="Header"> 
+
+	<div class="container mt-2">
+		<div class="card">
+			<div class="card-header">Employees List</div>
+			<div class="card-body">
+<!-- 				<form method="get" th:action="@{index}"> -->
+<!-- 					<label >Keyword:</label> -->
+<!-- 					<input type="text" name="Keyword" th:value="${Keyword}">  -->
+<!-- 				<button type="submit" class="btn btn-primary"> Search</button> -->
+<!-- 				</form> -->
+
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th>Nom</th>
+							<th>Prenom</th>
+							<th>Dat Naissance</th>
+							<th>Role</th>
+							<th sec:authorize="hasRole ('ADMIN')">Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="Employee:${ListEmployees}">
+							<td th:text="${Employee.id}"></td>
+							<td th:text="${Employee.Nom}"></td>
+							<td th:text="${Employee.Prenom}"></td>
+							<td th:text="${Employee.DatNaissance}"></td>
+							<td th:text="${Employee.Role}"></td>
+							<td sec:authorize="hasRole ('ADMIN')">
+							<a  class=" btn btn-success" th:href="@{edit(id=${Employee.id})}">Update</a>
+							</td>
+							<td sec:authorize="hasRole ('ADMIN')">
+							<a  class=" btn btn-danger" th:href="@{delete(id=${Employee.id})}">Delete</a>
+<!-- 							<a onclick="return  confirm('Are you sure You want to delete this employe')" class=" btn btn-danger" th:href="@{delete(id=${p.id})}">Delete</a> -->
+									
+							</td>
+						</tr>
+					</tbody>
+
+				</table>
+
+<!-- 				<ul class="nav nav-pills"> -->
+
+<!-- 					<li th:each="page,status:${pages}"> -->
+<!-- 					<a th:class="${status.index==currentPage?'btn btn-primary ms-1' :'btn btn-outline-primary ms-1 '}" -->
+<!-- 						th:text="${status.index}" -->
+<!-- 						th:href="@{/index(page=${status.index, Keyword=${Keyword})}">  -->
+						
+<!-- 						</a> -->
+<!-- 						</li> -->
+
+<!-- 				</ul> -->
+
+			</div>
+
+		</div>
+
+	</div>
+
+	</div>
+</body>
+</html>
