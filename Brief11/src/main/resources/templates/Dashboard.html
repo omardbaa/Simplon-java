@@ -19,14 +19,14 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="nav-link" th:href="@{/index}">Home</a>
+    <a class="nav-link" th:href="@{/user/index}">Home</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" th:href="@{/NewEmployee}">New Employee</a>
+      <ul class="navbar-nav"    sec:authorize="hasRole ('ADMIN')">
+        <li class="nav-item"  >
+          <a class="nav-link active" aria-current="page" th:href="@{/admin/NewEmployee}">New Employee</a>
         </li>
       </ul>
   
@@ -88,10 +88,10 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 							<td th:text="${Employee.DatNaissance}"></td>
 							<td th:text="${Employee.Role}"></td>
 							<td sec:authorize="hasRole ('ADMIN')">
-							<a  class=" btn btn-success" th:href="@{edit(id=${Employee.id})}">Update</a>
+							<a  class=" btn btn-success" th:href="@{/admin/edit(id=${Employee.id})}">Update</a>
 							</td>
 							<td sec:authorize="hasRole ('ADMIN')">
-							<a  class=" btn btn-danger" th:href="@{delete(id=${Employee.id})}">Delete</a>
+							<a  class=" btn btn-danger" th:href="@{/admin/delete(id=${Employee.id})}">Delete</a>
 <!-- 							<a onclick="return  confirm('Are you sure You want to delete this employe')" class=" btn btn-danger" th:href="@{delete(id=${p.id})}">Delete</a> -->
 									
 							</td>

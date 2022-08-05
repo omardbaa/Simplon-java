@@ -28,22 +28,23 @@ public class Brief11Application  implements CommandLineRunner{
 
 	@Override
 	public void run(String... args) throws Exception {
-//		employeDao.save( new Employe(1L,"Said", "Said", new Date(2022-8-04), "Responsabe "));
-//		employeDao.save( new Employe(2L,"Khadija", "BIGDADE", new Date(2022-8-04), "Responsabe "));
-//		employeDao.save( new Employe(3L,"Nawan", "BV Sobape", new Date(2022-8-04), "Responsabe "));
-//		employeDao.save( new Employe(4L,"Abderrahime", "Elouardy", new Date(2022-8-04), "Responsabe "));
-//		employeDao.save( new Employe(5L,"Anass", "Anass", new Date(2022-8-04), "Responsabe "));
-//		employeDao.save( new Employe(6L,"Khadija", "BIGDADE", new Date(2022-8-04), "Responsabe "));
-//		employeDao.save( new Employe(7L,"Nawan", "BV Sobape", new Date(2022-8-04), "Responsabe "));
-//		employeDao.save( new Employe(8L,"Abderrahime", "Elouardy", new Date(2022-8-04), "Responsabe "));
-//		employeDao.save( new Employe(9L,"Najib", "Najib", new Date(2022-8-04), "Responsabe "));
-//		employeDao.save( new Employe(10L,"Khadija", "BIGDADE", new Date(2022-8-04), "Responsabe "));
-//		employeDao.save( new Employe(11L,"Nawan", "BV Sobape", new Date(2022-8-04), "Responsabe "));
-//		employeDao.save( new Employe(12L,"Abderrahime", "Elouardy", new Date(2022-8-04), "Responsabe "));
-//		employeDao.save( new Employe(13L,"Ibtihal", "Ibtihal", new Date(2022-8-04), "Responsabe "));
-//		employeDao.save( new Employe(14L,"Khadija", "BIGDADE", new Date(2022-8-04), "Responsabe "));
-//		employeDao.save( new Employe(15L,"Nawan", "BV Sobape", new Date(2022-8-04), "Responsabe "));
-//		employeDao.save( new Employe(16L,"Abderrahime", "Elouardy", new Date(2022-8-04), "Responsabe "));
+		employeDao.save( new Employe(1L,"omar", "dbaa", new Date(8-04-2022), "Developer "));
+		employeDao.save( new Employe(2L,"Khadija", "BIGDADE", new Date(8-04-2022), "Developer "));
+		employeDao.save( new Employe(3L,"Nawan", "BV Sobape", new Date(8-04-2022), "Developer "));
+		employeDao.save( new Employe(4L,"Abderrahim", "Elouardy", new Date(28-04-2022), "Developer "));
+		employeDao.save( new Employe(5L,"Anas", "Elmakhloufi", new Date(8-04-2022), "Developer "));
+		employeDao.save( new Employe(6L,"Fatiha", "Elhabti", new Date(8-04-2022), "Developer "));
+		employeDao.save( new Employe(7L,"Mohamed", "Idlmhor", new Date(8-04-2022), "Developer "));
+		employeDao.save( new Employe(8L,"Ayoub", "Oudor", new Date(8-04-2022), "Developer "));
+		employeDao.save( new Employe(9L,"Najib", "Rachid ", new Date(8-04-2022), "Developer "));
+		employeDao.save( new Employe(10L,"Ibtihal", "Boukhanchouch", new Date(8-04-2022), "Developer "));
+		employeDao.save( new Employe(11L,"Maryam", "Ziane", new Date(8-04-2022), "Developer "));
+		employeDao.save( new Employe(12L,"Mustapha", "houm", new Date(8-04-2022), "Developer "));
+		employeDao.save( new Employe(13L,"Balde", "Sény", new Date(8-04-2022), "Developer "));
+		employeDao.save( new Employe(14L,"Khalil", "Farouqi", new Date(8-04-2022), "Developer "));
+		employeDao.save( new Employe(15L,"Atman ", "Boulaajaili ", new Date(8-04-2022), "Developer "));
+		employeDao.save( new Employe(16L,"Latifa", "Amougay ", new Date(8-04-2022), "Developer "));
+		employeDao.save( new Employe(16L,"Anas", "Oussous  ", new Date(8-04-2022), "Developer "));
 //	adminDao.save(new Admin(1L, "omar dbaa", "omar@gmail.com", "omar"));
 //	
 	employeDao.findAll().forEach(p->{

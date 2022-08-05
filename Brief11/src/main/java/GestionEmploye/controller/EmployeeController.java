@@ -28,10 +28,10 @@ public class EmployeeController {
 
 private EmployeeDao employeDao;
 
-@GetMapping(path = "/index")
+@GetMapping(path = "/user/index")
 public  String employe (Model model, 
 		@RequestParam(name= " page",defaultValue = "0")int page,
-		@RequestParam(name= " size",defaultValue = "5")int size,
+		@RequestParam(name= " size",defaultValue = "35")int size,
 	@RequestParam(name= " Keyword",defaultValue = "")String Keyword){
 	
 	Page<Employe> pageemploye=employeDao.findAll(PageRequest.of(page, size));
@@ -49,15 +49,15 @@ public  String employe (Model model,
 //	return employeDao.findById(id).get();
 //}
 
-@GetMapping("/delete")
+@GetMapping("/admin/delete")
 public String  delete (Long id) {
 	employeDao.deleteById(id);
 //	return "redirect:/index?page=" +page+ "&Keyword="+ Keyword;
-	return "redirect:/index";
+	return "redirect:/user/index";
 }
 
 
-@GetMapping("/edit")
+@GetMapping("/admin/edit")
 public String  edit (Model model, Long id) {
 	Employe employee=employeDao.findById(id).orElse(null);
 	if (employee==null) throw new RuntimeException("Employee Not Exist");
@@ -71,20 +71,20 @@ public String  Home () {
 	return "Home";
 }
 
-@GetMapping("/NewEmployee")
+@GetMapping("/admin/NewEmployee")
 public String  NewEmployee (Model model) {
 	model.addAttribute("employee", new Employe());
 	
 return "NewEmployee";
 }
 
-@PostMapping (path="/save")
+@PostMapping (path="/admin/save")
 public String save(Model model, @Valid Employe employee , BindingResult bindingResult) {
 	if(bindingResult.hasErrors()) return "NewEmployee";
 	
 	employeDao.save(employee);
 	
-	 return "redirect:/index";
+	 return "redirect:/user/index";
 	
 	
 }

@@ -14,14 +14,14 @@
 <header>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="nav-link" th:href="@{/index}">Home</a>
+    <a class="nav-link" th:href="@{/user/index}">Home</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav">
+      <ul class="navbar-nav"      sec:authorize="hasRole ('ADMIN')">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" th:href="@{/NewEmployee}">New Employee</a>
+          <a class="nav-link active" aria-current="page" th:href="@{/admin/NewEmployee}">New Employee</a>
         </li>
       </ul>
   
