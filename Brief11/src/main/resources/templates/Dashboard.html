@@ -24,7 +24,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav"    sec:authorize="hasRole ('ADMIN')">
+      <ul class="navbar-nav"    sec:authorize="hasAuthority ('ADMIN')">
         <li class="nav-item"  >
           <a class="nav-link active" aria-current="page" th:href="@{/admin/NewEmployee}">New Employee</a>
         </li>
@@ -77,7 +77,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 							<th>Prenom</th>
 							<th>Dat Naissance</th>
 							<th>Role</th>
-							<th sec:authorize="hasRole ('ADMIN')">Action</th>
+							<th sec:authorize="hasAuthority ('ADMIN')">Action</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -87,10 +87,10 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 							<td th:text="${Employee.Prenom}"></td>
 							<td th:text="${Employee.DatNaissance}"></td>
 							<td th:text="${Employee.Role}"></td>
-							<td sec:authorize="hasRole ('ADMIN')">
+							<td sec:authorize="hasAuthority ('ADMIN')">
 							<a  class=" btn btn-success" th:href="@{/admin/edit(id=${Employee.id})}">Update</a>
 							</td>
-							<td sec:authorize="hasRole ('ADMIN')">
+							<td sec:authorize="hasAuthority ('ADMIN')">
 							<a  class=" btn btn-danger" th:href="@{/admin/delete(id=${Employee.id})}">Delete</a>
 <!-- 							<a onclick="return  confirm('Are you sure You want to delete this employe')" class=" btn btn-danger" th:href="@{delete(id=${p.id})}">Delete</a> -->
 									
