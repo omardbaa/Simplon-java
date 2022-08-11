@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "//Hibernate/Hibernate Configuration DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<property name="connection.url">jdbc:postgresql://localhost:5432/DBOMBRIEF12</property> <!-- BD Mane -->
+   		<property name="connection.driver_class">org.postgresql.Driver</property> <!-- DB Driver -->
+   		<property name="connection.username">postgres</property> <!-- DB User -->
+   		<property name="connection.password">123456</property> <!-- DB Password -->
+   		<property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property> <!-- DB Dialect -->
+   		<property name="show_sql">true</property>
+		<property name="hbm2ddl.auto">update</property>
+		<property name ="hibernate.current_session _context_class">thread</property>
+		<mapping class="entities.Administrateur"></mapping>
+		<mapping class="entities.Cours"></mapping>
+		<mapping class="entities.Etudiants"></mapping>
+		<mapping class="entities.Professeurs"></mapping>
+	</session-factory>
+</hibernate-configuration>

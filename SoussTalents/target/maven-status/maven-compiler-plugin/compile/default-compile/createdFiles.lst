@@ -1,0 +1,12 @@
+entities\Cours.class
+test\Test.class
+dao\TeacherDao.class
+entities\Admin.class
+dao\CoursDao.class
+entities\Students.class
+dao\Dao.class
+utils\HibernateUtil.class
+entities\Teachers.class
+dao\StudentDao.class
+controllers\LoginServlet.class
+dao\AdminDao.class
