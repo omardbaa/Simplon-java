@@ -1,14 +1,32 @@
 package dao;
 
 import java.util.List;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+
 import entities.Admin;
+import utils.HibernateUtil;
 
 
 public class AdminDao implements Dao<Admin> {
 
 	@Override
-	public void add(Admin obj) {
-		// TODO Auto-generated method stub
+	public void add(Admin admin) {
+
+		  
+		  //Create session factory object
+		  SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+		  //getting session object from session factory
+		  Session session = sessionFactory.openSession();
+		  //getting transaction object from session object
+		  session.beginTransaction();
+		  
+		  session.save(admin);
+		  System.out.println("Inserted Successfully");
+		  session.getTransaction().commit();
+		  session.close();
+		  sessionFactory.close();
 		
 	}
 

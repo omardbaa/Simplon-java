@@ -73,23 +73,23 @@ public class Brief11Application  implements CommandLineRunner{
 	
 	}
 	
-@Bean
+//@Bean
 CommandLineRunner saveUser(SecurityService securityService) {
 	
 	return args ->{
-//		securityService.saveNewUser("Omar", "123", "123");
-//		securityService.saveNewUser("user1", "123", "123");
-//		securityService.saveNewUser("user2", "123", "123");
+		securityService.saveNewUser("Omar", "123", "123");
+		securityService.saveNewUser("user1", "123", "123");
+		securityService.saveNewUser("user2", "123", "123");
 		
-//		
-//		securityService.saveNewRole("USER", "");
-//		securityService.saveNewRole("ADMIN", "");
-//		
-//		securityService.addRoleToUser("Omar", "USER");
-//		securityService.addRoleToUser("Omar", "ADMIN");
-//		securityService.addRoleToUser("user1", "USER");
-//		securityService.addRoleToUser("user2", "USER");
-//		
+		
+		securityService.saveNewRole("USER", "");
+		securityService.saveNewRole("ADMIN", "");
+		
+		securityService.addRoleToUser("Omar", "USER");
+		securityService.addRoleToUser("Omar", "ADMIN");
+		securityService.addRoleToUser("user1", "USER");
+		securityService.addRoleToUser("user2", "USER");
+		
 		
 	};
 }
