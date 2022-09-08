@@ -31,13 +31,13 @@ pipeline {
                 }
             }
         }
-        stage("Run Tests") {
-            steps {
-                dir("${DIR}") {
-                    bat "mvn clean test"
-                }
-            }
-        }
+        #stage("Run Tests") {
+         #   steps {
+        #        dir("${DIR}") {
+       #             bat "mvn clean test"
+      #          }
+     #       }
+        #}
         stage("Switch to Production Env") {
             steps {
                 dir("${DIR}/src/main/resources") {

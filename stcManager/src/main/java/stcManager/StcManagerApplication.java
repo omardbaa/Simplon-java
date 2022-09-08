@@ -17,7 +17,7 @@ import stcManager.repositories.ResponsableRepository;
 import stcManager.security.service.SecurityService;
 
 @SpringBootApplication
-@EnableGlobalMethodSecurity(prePostEnabled =true, securedEnabled = true)
+//@EnableGlobalMethodSecurity(prePostEnabled =true, securedEnabled = true)
 public class StcManagerApplication implements CommandLineRunner{
 
 	@Autowired
