@@ -1,29 +1,23 @@
 
 package stcManager;
 
-import java.util.Date;
-import java.util.stream.Stream;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import stcManager.model.Activite;
-import stcManager.model.Exercice;
-import stcManager.model.Participent;
-import stcManager.model.Responsable;
 import stcManager.repositories.ActiviteRepository;
 import stcManager.repositories.ExerciceRepository;
 import stcManager.repositories.ParticipentRepository;
 import stcManager.repositories.ResponsableRepository;
-import stcManager.security.entities.AppUser;
 import stcManager.security.service.SecurityService;
 
 @SpringBootApplication
+@EnableGlobalMethodSecurity(prePostEnabled =true, securedEnabled = true)
 public class StcManagerApplication implements CommandLineRunner{
 
 	@Autowired

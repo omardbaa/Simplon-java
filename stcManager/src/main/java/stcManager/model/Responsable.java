@@ -27,44 +27,45 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Entity
-@Table (name="responsables")
-@NoArgsConstructor @AllArgsConstructor @ToString
- @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,
- 
- property = "responsableId")
+@Table(name = "responsables")
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,
 
+		property = "responsableId")
 
 public class Responsable {
-@Id  @GeneratedValue (strategy = GenerationType.IDENTITY)
-	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 
-private Long responsableId;
+	private Long responsableId;
 	@NotEmpty
-	@Size (min = 4, max = 40)
+	@Size(min = 4, max = 40)
 	@Column(unique = true)
 	private String fullName;
-	
+
 	@NotEmpty
-	@Size (min = 4, max = 40)
+	@Size(min = 4, max = 40)
 	private String domaine;
-	
+
 	@NotEmpty
-	@Size (min = 4, max = 40)
+	@Size(min = 4, max = 40)
 	private String email;
-	
+
 	@NotEmpty
-	@Size (min = 4, max = 40)
+	@Size(min = 4, max = 40)
 	private String telephone;
-	
+
 	@NotEmpty
-	@Size (min = 4, max = 40)
+	@Size(min = 4, max = 40)
 	private String type;
-	
-	private boolean  active;
-	
+
+	private boolean active;
+
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinColumn(name="responsableId",referencedColumnName = "responsableId")
-	
+	@JoinColumn(name = "responsableId", referencedColumnName = "responsableId")
+
 	private Collection<Activite> activites;
 
 	public Long getResponsableId() {
@@ -130,11 +131,5 @@ private Long responsableId;
 	public void setActivites(Collection<Activite> activites) {
 		this.activites = activites;
 	}
-	
-	
-	
-	
 
-	
-	
 }

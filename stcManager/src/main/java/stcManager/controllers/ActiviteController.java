@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -35,7 +36,7 @@ public class ActiviteController {
 	}
 	
 	
-	
+//	@PreAuthorize("ADMIN")
 	@PostMapping("/admin/save")
 public Activite save(@RequestBody Activite activite  ) {
 		service.saveOrUpdate(activite);

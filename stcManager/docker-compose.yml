@@ -1,0 +1,23 @@
+version: "3.8"
+services:
+### Postgres Database ###
+  app:
+    image: "omardbaa/stc-app"
+    container_name: stc-app
+    build: ./
+    ports:
+      - "8080:5432"
+    networks:
+      - stc-network
+    depends_on: 
+      - BDBRIEF13
+  BDBRIEF13:
+    image: postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - stc-network
+    environment: 
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_DB: BDBRIEF13

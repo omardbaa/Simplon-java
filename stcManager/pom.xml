@@ -8,10 +8,10 @@
 		<version>2.7.3</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>stcManager</groupId>
-	<artifactId>stcManager</artifactId>
+	<groupId>stcmanager</groupId>
+	<artifactId>stcmanager</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>stcManager</name>
+	<name>stcmanager</name>
 	<description>stcManager Spring Boot App</description>
 	<properties>
 		<java.version>17</java.version>

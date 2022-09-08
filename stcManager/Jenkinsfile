@@ -1,0 +1,89 @@
+pipeline {
+    agent any
+    tools{
+        maven "maven_3_8_6"
+    }
+    environment { 
+        NAME = "stc-app"
+        GITREPO = "https://github.com/omardbaa/Simplon-java.git"
+        DIR = "stcManager"
+        GITBRANCH = "main"
+        DOCKERUSER = "omardbaa"
+        IMAGE = "${NAME}:${VERSION}"
+        VERSION = "${env.BUILD_ID}-${env.GIT_COMMIT}"
+    } 
+    stages{
+        stage("Cloning Git Repo") { 
+            steps { 
+                git branch: "${GITBRANCH}", url: "${GITREPO}"
+            }
+        } 
+        stage("Checking") {
+            steps {
+                echo "Running ${VERSION} on ${env.JENKINS_URL}"
+                echo "for brnach ${env.BRANCH_NAME}"
+            }
+        }
+        stage("Build Project Maven"){
+            steps{
+                dir("${DIR}") {
+                   bat "mvn clean install -DskipTests"
+                }
+            }
+        }
+        stage("Run Tests") {
+            steps {
+                dir("${DIR}") {
+                    bat "mvn clean test"
+                }
+            }
+        }
+        stage("Switch to Production Env") {
+            steps {
+                dir("${DIR}/src/main/resources") {
+                    powershell '''
+                    $lines = get-content application.properties 
+                    $lines | foreach-object {$_ -replace "dev", "prod"} | set-content application.properties
+                    '''
+                // remove unnecessary data
+                }
+                dir("${DIR}") {
+                    bat "mvn clean install -DskipTests"
+                }
+            }
+        }
+        stage("Build Docker Image"){
+            steps{
+                dir("${DIR}") {
+                    script{
+                        bat "docker build -t ${DOCKERUSER}/${NAME} ."
+                    }
+                }
+            }
+        }
+        stage("Push Image to Hub"){
+            steps{
+                withDockerRegistry([ credentialsId: "dockerhub", url: "" ]) {
+                    script { 
+                       //bat "docker tag ${DOCKERUSER}/${NAME}:latest ${DOCKERUSER}/${NAME}:${VERSION}"       
+                       bat "docker push ${DOCKERUSER}/${NAME}"   
+                    }
+                }
+            }
+        }
+        stage("Compose Docker Container") {
+            steps {
+                dir("${DIR}") {
+                    bat "docker compose up"
+                }
+            }
+        }
+        stage("Stop Docker Container") {
+            steps {
+                dir("${DIR}") {
+                    bat "docker stop ${NAME}"
+                }
+            }
+        }
+    }
+}

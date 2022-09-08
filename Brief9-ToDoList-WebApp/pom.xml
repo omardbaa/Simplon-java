@@ -81,6 +81,21 @@
     <artifactId>taglibs-standard-impl</artifactId>
     <version>1.2.1</version>
 </dependency>
+      <dependency>
+          <groupId>org.apache.tomcat</groupId>
+          <artifactId>tomcat-servlet-api</artifactId>
+          <version>10.0.23</version>
+      </dependency>
+      <dependency>
+          <groupId>commons-io</groupId>
+          <artifactId>commons-io</artifactId>
+          <version>2.11.0</version>
+      </dependency>
+      <dependency>
+          <groupId>serializable-fn</groupId>
+          <artifactId>serializable-fn</artifactId>
+          <version>1.1.4</version>
+      </dependency>
 
   </dependencies>
 </project>
