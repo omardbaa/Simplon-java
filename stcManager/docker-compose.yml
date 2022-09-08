@@ -1,23 +1,36 @@
-version: "3.8"
+version: "3"
 services:
 ### Postgres Database ###
-  app:
-    image: "omardbaa/stc-app"
-    container_name: stc-app
-    build: ./
-    ports:
-      - "8080:5432"
+
+  stc-postgres:
+    image: "postgres"
+    container_name: stc-postgres
     networks:
       - stc-network
-    depends_on: 
-      - BDBRIEF13
-  BDBRIEF13:
-    image: postgres
     ports:
       - "5432:5432"
-    networks:
-      - stc-network
     environment: 
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 123456
       POSTGRES_DB: BDBRIEF13
+
+ #Back-end Spring Boot Application
+  app:
+    image: "omardbaa/stc-app"
+    container_name: stc-app
+    environment:
+      - DB_SERVER=devops-postgres
+      - POSTGRES_DB=BDBRIEF13
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=123456 
+    networks:
+      - stc-network
+    ports:
+      - "8081:8080"
+    links:
+      - stc-postgres
+
+      
+networks: 
+    stc-network:
+     
