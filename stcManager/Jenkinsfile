@@ -31,13 +31,13 @@ pipeline {
                 }
             }
         }
-        #stage("Run Tests") {
-         #   steps {
-        #        dir("${DIR}") {
-       #             bat "mvn clean test"
-      #          }
-     #       }
-        #}
+        stage("Run Tests") {
+            steps {
+                dir("${DIR}") {
+                    bat "mvn clean test"
+                }
+            }
+        }
         stage("Switch to Production Env") {
             steps {
                 dir("${DIR}/src/main/resources") {
@@ -63,7 +63,7 @@ pipeline {
         }
         stage("Push Image to Hub"){
             steps{
-                withDockerRegistry([ credentialsId: "dockerhub", url: "" ]) {
+                withDockerRegistry([ credentialsId: "dockerhub", url: "https://hub.docker.com/repository/docker/omardbaa/java" ]) {
                     script { 
                        //bat "docker tag ${DOCKERUSER}/${NAME}:latest ${DOCKERUSER}/${NAME}:${VERSION}"       
                        bat "docker push ${DOCKERUSER}/${NAME}"   
