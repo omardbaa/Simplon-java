@@ -14,14 +14,17 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Entity
 @Table(name = "clients")
 
- @ToString
-@Data
+@ToString
+@Data @AllArgsConstructor
+@NoArgsConstructor
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,
  
 		 property = "id")
@@ -30,7 +33,6 @@ import lombok.ToString;
 public class Client extends Users{
 
 		@OneToMany(mappedBy = "client", targetEntity = Command.class, fetch = FetchType.EAGER)
-		
-		@JsonIgnore
-		private Collection<Command> command;
+		private Collection<Command> commands;
+
 }

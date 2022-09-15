@@ -29,6 +29,15 @@ public class UsersController {
 		return ("<h1>Welcom to soussHealthOnlineStore<h1>");
 	}
 	
+	
+	   @PostMapping("/register")
+	    public String register(Users user) {
+	        service.registerDefaultUser(user);
+	         
+	        return "register success";
+	    }
+	
+	
 	@PostMapping("/save")
 public Users save(@RequestBody Users users  ) {
 		service.save(users);

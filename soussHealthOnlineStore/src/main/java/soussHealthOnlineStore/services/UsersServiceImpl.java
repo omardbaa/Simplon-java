@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import soussHealthOnlineStore.entities.AppRole;
 import soussHealthOnlineStore.entities.Users;
+import soussHealthOnlineStore.repositories.AppRoleRepository;
 import soussHealthOnlineStore.repositories.UsersRepository;
 
 
@@ -14,6 +16,11 @@ import soussHealthOnlineStore.repositories.UsersRepository;
 @Service
 @Transactional
 public class UsersServiceImpl implements DaoService<Users> {
+	
+  
+     
+    @Autowired AppRoleRepository roleRepo;
+  
 	
 	@Autowired
 	UsersRepository repository;
@@ -38,6 +45,17 @@ repository.deleteById(id);
 	public Users findById(Long id) {
 		return repository.findById(id).get();
 	}
+	
+	
+	
+
+     
+    public void registerDefaultUser(Users user) {
+        AppRole roleUser = roleRepo.findByRoleName("CLIENT");
+        user.save(roleUser);
+        repository.save(user);
+    }
+	
 
 	@Override
 	public List<Users> getAll() {

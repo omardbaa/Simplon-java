@@ -3,12 +3,13 @@ package soussHealthOnlineStore.repositories;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import soussHealthOnlineStore.entities.Users;
+import soussHealthOnlineStore.entities.AppRole;
 
 
 @Repository
-public interface UsersRepository extends JpaRepository<Users, Long> {
+public interface AppRoleRepository extends JpaRepository<AppRole,Long> {
 
+	AppRole findByRoleName(String roleName);
 	
-	Users findByUsername(String username);
+
 }

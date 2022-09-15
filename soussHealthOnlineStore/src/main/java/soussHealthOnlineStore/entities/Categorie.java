@@ -23,7 +23,7 @@ import lombok.ToString;
 
 @Entity
 @Table(name = "categories")
-
+@Data
 @NoArgsConstructor @AllArgsConstructor @ToString
 
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,
@@ -37,7 +37,7 @@ public class Categorie {
 	private Long categoryId;
 	
 	@NotEmpty 
-	private String titre;
+	private String name;
 
 	@NotEmpty 
 	private String descriptif;
@@ -49,44 +49,6 @@ public class Categorie {
 		private Collection<Produit> produits;
 
 
-	public Long getCategoryId() {
-		return categoryId;
-	}
 
-
-	public void setCategoryId(Long categoryId) {
-		this.categoryId = categoryId;
-	}
-
-
-	public String getTitre() {
-		return titre;
-	}
-
-
-	public void setTitre(String titre) {
-		this.titre = titre;
-	}
-
-
-	public String getDescriptif() {
-		return descriptif;
-	}
-
-
-	public void setDescriptif(String descriptif) {
-		this.descriptif = descriptif;
-	}
-
-
-	public Collection<Produit> getProduits() {
-		return produits;
-	}
-
-
-	public void setProduits(Collection<Produit> produits) {
-		this.produits = produits;
-	}
-	
 	
 }
