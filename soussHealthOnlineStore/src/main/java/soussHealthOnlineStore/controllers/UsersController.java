@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,7 +23,11 @@ import soussHealthOnlineStore.services.UsersServiceImpl;
 @RequestMapping(value = "/user")
 public class UsersController {
 	@Autowired
-	UsersServiceImpl service;
+	private UsersServiceImpl service;
+
+public UsersController(UsersServiceImpl service){
+	this.service = service;
+}
 	
 	@GetMapping ("/")
 	
@@ -46,24 +52,26 @@ public Users save(@RequestBody Users users  ) {
 	
 	
 	@GetMapping("/users")
-	public List<Users> list(){
-		return service.getAll();
+	public ResponseEntity <List<Users>> getAll(){
+		List<Users> users = service.getAll();
+		return new ResponseEntity<>(users, HttpStatus.OK);
 		
 	}
 	
 	
 	@GetMapping("/user/{id}")
 	
-	public Users findById(@PathVariable Long id) {
+	public ResponseEntity <Users> findById(@PathVariable ("id") Long id) {
+		Users user = service.findById(id);
+		return new ResponseEntity<>(user, HttpStatus.OK);
 		
-		return service.findById(id);
 	}
 
 	
 	@DeleteMapping("/delete/{id}")
-	public String delete(@PathVariable (value = "id") Long id) {
+	public ResponseEntity <?> delete(@PathVariable (value = "id") Long id) {
 		service.delete(id);
-		return "Deleted Succesfully id= " +id;
+		return new ResponseEntity <>(HttpStatus.OK);
 		
 	}
 }
