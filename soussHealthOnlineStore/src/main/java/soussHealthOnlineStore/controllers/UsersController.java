@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PostAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -52,6 +53,7 @@ public Users save(@RequestBody Users users  ) {
 	
 	
 	@GetMapping("/users")
+//	@PostAuthorize("hasAuthority('ADMIN')")
 	public ResponseEntity <List<Users>> getAll(){
 		List<Users> users = service.getAll();
 		return new ResponseEntity<>(users, HttpStatus.OK);

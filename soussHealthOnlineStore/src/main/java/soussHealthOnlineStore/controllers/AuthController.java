@@ -66,7 +66,7 @@ public Users save(@RequestBody Users users  ) {
 	
 
 	@GetMapping("/users")
-	@PostAuthorize("hasAuthority('ADMIN')")
+//	@PostAuthorize("hasAuthority('ADMIN')")
 	public List<Users> list(){
 		return userService.getAll();
 		

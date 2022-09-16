@@ -57,8 +57,8 @@ public class Produit {
 	@JoinColumn(name = "categoryId", insertable = false, updatable = false)
 	@JsonIgnore
 	private Categorie categorie;
-	@Column(name = "categoryId")
-	private Long categoryId;
+//	@Column(name = "categoryId")
+//	private Long categoryId;
 
 	@OneToMany(mappedBy = "produit", targetEntity = Command.class, fetch = FetchType.EAGER)
 	private Collection<Command> commands;
