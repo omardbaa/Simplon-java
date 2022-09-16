@@ -5,7 +5,11 @@ import org.springframework.stereotype.Repository;
 
 import soussHealthOnlineStore.entities.Client;
 
+
 @Repository
 public interface ClientRepository extends JpaRepository<Client, Long> {
+	
+
+	Client findByUsername(String username);
 
 }

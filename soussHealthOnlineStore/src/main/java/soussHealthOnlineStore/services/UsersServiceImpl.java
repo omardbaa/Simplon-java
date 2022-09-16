@@ -1,8 +1,12 @@
 package soussHealthOnlineStore.services;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,52 +22,59 @@ import soussHealthOnlineStore.repositories.UsersRepository;
 public class UsersServiceImpl implements DaoService<Users> {
 	
   
-     
-    @Autowired AppRoleRepository roleRepo;
+	@Autowired
+	private PasswordEncoder passwordEncoder;
+
+    @Autowired 
+    private AppRoleRepository roleRepo;
   
 	
 	@Autowired
-	UsersRepository repository;
+	private UsersRepository userRepository;
 	
 	@Override
 	public void save(Users users) {
-repository.save(users);		
+		String password = users.getPassword();
+		users.setPassword(passwordEncoder.encode(password));
+		userRepository.save(users);		
 	}
 	
 	@Override
 	public void update(Users users) {
-		repository.save(users);		
+		userRepository.save(users);		
 	}
 
 
 	@Override
 	public void delete(Long id) {
-repository.deleteById(id);	
+		userRepository.deleteById(id);	
 	}
  
 	@Override
 	public Users findById(Long id) {
-		return repository.findById(id).get();
+		return userRepository.findById(id).get();
 	}
 	
 	
 	
 
      
-    public void registerDefaultUser(Users user) {
-        AppRole roleUser = roleRepo.findByRoleName("CLIENT");
-        user.save(roleUser);
-        repository.save(user);
-    }
-	
+ 
 
 	@Override
 	public List<Users> getAll() {
-		return (List<Users>)repository.findAll();
+		return (List<Users>)userRepository.findAll();
+	}
+
+	
+	public Users loadUserByUserName(String username) {
+		return userRepository.findByUsername(username);
 	}
 
 
-	
+		
+
+    
 
 	
 

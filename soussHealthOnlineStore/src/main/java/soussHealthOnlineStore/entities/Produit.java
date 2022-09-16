@@ -28,46 +28,41 @@ import lombok.ToString;
 @Entity
 @Table(name = "produits")
 
-@NoArgsConstructor @AllArgsConstructor @ToString
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
 @Data
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,
- 
-		 property = "produitId")
+@JsonIdentityInfo(scope = Produit.class, generator = ObjectIdGenerators.PropertyGenerator.class, property = "produitId")
 public class Produit {
 
-	
-	   @Id
-	  
+	@Id
 
-	
 	private Long produitId;
 
-	@NotEmpty 
+	@NotEmpty
 	private String name;
 
-	@NotEmpty 
+	@NotEmpty
 	private String descriptif;
-	@NotEmpty 
+	@NotEmpty
 	private String country;
-	
-	
+
 	private Double prix;
 
-	
-	
-	
 //	@ManyToOne( cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 //    @JoinColumn(name="categoryId", nullable = true)
 //	private Categorie categorie;
 
-	 @ManyToOne(cascade = CascadeType.ALL, targetEntity = Categorie.class, fetch = FetchType.LAZY)
-	    @JoinColumn(name = "categoryId", insertable = false, updatable = false)
-	    @JsonIgnore
-	    private Categorie categorie;
-	    @Column(name = "categoryId")
-	    private Long categoryId;
-	    
-	    @OneToMany(mappedBy = "produit", targetEntity = Command.class, fetch = FetchType.EAGER)
-		private Collection<Command> command;
+	@ManyToOne(cascade = CascadeType.ALL, targetEntity = Categorie.class, fetch = FetchType.LAZY)
+	@JoinColumn(name = "categoryId", insertable = false, updatable = false)
+	@JsonIgnore
+	private Categorie categorie;
+	@Column(name = "categoryId")
+	private Long categoryId;
+
+	@OneToMany(mappedBy = "produit", targetEntity = Command.class, fetch = FetchType.EAGER)
+	private Collection<Command> commands;
+	
+
 
 }

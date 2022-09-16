@@ -2,6 +2,8 @@ package soussHealthOnlineStore.services;
 
 import java.util.List;
 
+import soussHealthOnlineStore.entities.Users;
+
 
 public interface DaoService <T>{
 
@@ -15,5 +17,6 @@ public interface DaoService <T>{
 	public T findById(Long id); 
 	
 	public List<T> getAll();
+
 	
 }

@@ -30,12 +30,7 @@ public class UsersController {
 	}
 	
 	
-	   @PostMapping("/register")
-	    public String register(Users user) {
-	        service.registerDefaultUser(user);
-	         
-	        return "register success";
-	    }
+	 
 	
 	
 	@PostMapping("/save")
@@ -50,14 +45,14 @@ public Users save(@RequestBody Users users  ) {
 	}
 	
 	
-	@GetMapping("/admin/users")
+	@GetMapping("/users")
 	public List<Users> list(){
 		return service.getAll();
 		
 	}
 	
 	
-	@GetMapping("/admin/user/{id}")
+	@GetMapping("/user/{id}")
 	
 	public Users findById(@PathVariable Long id) {
 		
@@ -65,7 +60,7 @@ public Users save(@RequestBody Users users  ) {
 	}
 
 	
-	@DeleteMapping("/admin/delete/{id}")
+	@DeleteMapping("/delete/{id}")
 	public String delete(@PathVariable (value = "id") Long id) {
 		service.delete(id);
 		return "Deleted Succesfully id= " +id;

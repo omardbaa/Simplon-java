@@ -3,7 +3,7 @@ package soussHealthOnlineStore.services;
 import soussHealthOnlineStore.entities.AppRole;
 import soussHealthOnlineStore.entities.Users;
 
-public interface AuthenticationService <T>{
+public interface AuthenticationService {
 
 	
 	

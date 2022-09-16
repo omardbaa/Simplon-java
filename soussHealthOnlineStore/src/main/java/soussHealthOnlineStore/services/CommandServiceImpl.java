@@ -6,8 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import soussHealthOnlineStore.entities.Client;
 import soussHealthOnlineStore.entities.Command;
+import soussHealthOnlineStore.entities.Produit;
+import soussHealthOnlineStore.repositories.ClientRepository;
 import soussHealthOnlineStore.repositories.CommandRepository;
+import soussHealthOnlineStore.repositories.ProduitRepository;
 
 
 
@@ -17,6 +21,12 @@ public class CommandServiceImpl implements DaoService<Command> {
 	
 	@Autowired
 	CommandRepository repository;
+	
+	@Autowired
+	ClientRepository clientRepository;
+	
+	@Autowired
+	ProduitRepository produitRepository;
 	
 	@Override
 	public void save(Command command) {
@@ -47,6 +57,8 @@ repository.deleteById(id);
 
 	
 
+
+	
 	
 
 }

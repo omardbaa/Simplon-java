@@ -1,5 +1,7 @@
 package soussHealthOnlineStore.services;
 
+import java.util.Arrays;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -58,7 +60,11 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 		repositroy.save(appRole);
 		
 	}
-
+public Users registerDefaultUser(Users user) {
+    	
+        user.setAppRoles(Arrays.asList(repositroy.findByRoleName("CLIENT")));
+        return userRepository.save(user);
+    }
 	
 
 }

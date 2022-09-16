@@ -1,12 +1,14 @@
 package soussHealthOnlineStore.entities;
 
 import java.util.Collection;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -25,14 +27,17 @@ import lombok.ToString;
 @ToString
 @Data @AllArgsConstructor
 @NoArgsConstructor
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,
- 
-		 property = "id")
+@JsonIdentityInfo(scope = Client.class, generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 
 //@PrimaryKeyJoinColumn(name = "id")
 public class Client extends Users{
 
-		@OneToMany(mappedBy = "client", targetEntity = Command.class, fetch = FetchType.EAGER)
+		@OneToMany(mappedBy = "client", targetEntity = Command.class, fetch = FetchType.LAZY)
 		private Collection<Command> commands;
+		
+		
+		@ManyToMany(fetch = FetchType.EAGER)
+		private Collection<AppRole> appRoles ;
+		  
 
 }

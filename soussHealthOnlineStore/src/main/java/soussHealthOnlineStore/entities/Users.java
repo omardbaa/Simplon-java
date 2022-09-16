@@ -1,13 +1,14 @@
 package soussHealthOnlineStore.entities;
 
 
-import java.util.ArrayList;
 import java.util.Collection;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
@@ -33,33 +34,33 @@ import lombok.ToString;
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,
  
 		 property = "id")
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Inheritance(strategy = InheritanceType.JOINED)
 public  class Users {
      
 	   @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+@GeneratedValue(strategy = GenerationType.TABLE)
 
     private Long id;
 	
-	 @NotEmpty   
+	   
 	private String nom;  
-	 @NotEmpty 
+	
 	private String prenom; 
 	 
-	 @NotEmpty 
+	
 	private String username;  
 	 
-	 @NotEmpty 
+	
 	 @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
 	private String password; 
 	
-	 @NotEmpty 
+	
 	private String email; 
 	
 	@Enumerated(value = EnumType.STRING)
 	private Label label;
 
-	@ManyToMany(fetch = FetchType.LAZY)
+	@ManyToMany(fetch = FetchType.EAGER)
 	private Collection<AppRole> appRoles ;
 
 	  public void save(AppRole role) {
