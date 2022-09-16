@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { UserInterface } from '../models/user-interface';
-import { UserService } from '../user.service';
+import { UserService } from '../user-service/service.service';
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
