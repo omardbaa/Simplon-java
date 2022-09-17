@@ -18,9 +18,15 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PostAuthorize;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -29,46 +35,70 @@ import lombok.Data;
 import soussHealthOnlineStore.entities.AppRole;
 import soussHealthOnlineStore.entities.Users;
 import soussHealthOnlineStore.security.JWTUtil;
-import soussHealthOnlineStore.services.AuthenticationServiceImpl;
-import soussHealthOnlineStore.services.UsersServiceImpl;
+import soussHealthOnlineStore.services.AccountServiceImpl;
 
 @RestController
 @EnableAutoConfiguration
-@RequestMapping(value = "/auth")
-public class AuthController {
+@RequestMapping(value = "/user")
+public class AccountController {
+	@Autowired
+	private AccountServiceImpl service;
+
+public AccountController(AccountServiceImpl service){
+	this.service = service;
+}
 	
-
-	@Autowired
-	UsersServiceImpl userService;
-
-	@Autowired
-	AuthenticationServiceImpl service;
-
-	@GetMapping("/")
-
-	public String Home() {
+	@GetMapping ("/")
+	
+	public String Home () {
 		return ("<h1>Welcom to soussHealthOnlineStore<h1>");
 	}
 	
-	   @PostMapping("/register")
-	    public String register(@RequestBody Users user) {
-		   System.out.println(user);
-	        service.registerDefaultUser(user);
-	         
-	        return "register success";
-	    }
+	
+
+	@PostMapping("/regester")
+	public String register(@RequestBody Users user) {
+		System.out.println(user);
+		service.registerDefaultUser(user);
+		return "register success";
+	}
+
 	
 	@PostMapping("/save")
 public Users save(@RequestBody Users users  ) {
-		userService.save(users);
+		service.save(users);
+		return users;
+	}
+	@PutMapping("/update")
+	public Users update(@RequestBody Users users  ) {
+		service.save(users);
 		return users;
 	}
 	
-
+	
 	@GetMapping("/users")
+	@CrossOrigin(origins = "http://localhost:4200")
 //	@PostAuthorize("hasAuthority('ADMIN')")
-	public List<Users> list(){
-		return userService.getAll();
+	public ResponseEntity <List<Users>> getAll(){
+		List<Users> users = service.getAll();
+		return new ResponseEntity<>(users, HttpStatus.OK);
+		
+	}
+	
+	
+	@GetMapping("/user/{id}")
+	
+	public ResponseEntity <Users> findById(@PathVariable ("id") Long id) {
+		Users user = service.findById(id);
+		return new ResponseEntity<>(user, HttpStatus.OK);
+		
+	}
+
+	
+	@DeleteMapping("/delete/{id}")
+	public ResponseEntity <?> delete(@PathVariable (value = "id") Long id) {
+		service.delete(id);
+		return new ResponseEntity <>(HttpStatus.OK);
 		
 	}
 	
@@ -78,60 +108,54 @@ public Users save(@RequestBody Users users  ) {
 		service.save(appRole);
 		return appRole;
 	}
-	
 	@PostMapping(path = "/roleToUser")
 	@PostAuthorize("hasAuthority('ADMIN')")
-public void addRoleToUser(@RequestBody RoleUserForm roleUserForm ) {
-		
-		service.addRoleToUser(roleUserForm.getUsername(),roleUserForm.getRoleName());
+	public void addRoleToUser(@RequestBody RoleUserForm roleUserForm) {
+
+		service.addRoleToUser(roleUserForm.getUsername(), roleUserForm.getRoleName());
 	}
-	
-	
+
 	@GetMapping(path = "/refreshToken")
-	public void refreshToken(HttpServletRequest request,HttpServletResponse response) throws IOException {
-		
+	public void refreshToken(HttpServletRequest request, HttpServletResponse response) throws IOException {
+
 		String authToken = request.getHeader(JWTUtil.HEADER);
-		if(authToken!=null && authToken.startsWith(JWTUtil.PREFIX)) {
-			
+		if (authToken != null && authToken.startsWith(JWTUtil.PREFIX)) {
+
 			try {
-				
+
 				String refreshToken = authToken.substring(JWTUtil.PREFIX.length());
 				Algorithm algorithm = Algorithm.HMAC256(JWTUtil.SECRET);
 				JWTVerifier jwtVerifier = JWT.require(algorithm).build();
 				DecodedJWT decodedJWT = jwtVerifier.verify(refreshToken);
 				String username = decodedJWT.getSubject();
-				Users user = userService.loadUserByUserName(username);
-				String jwtAccessToken = JWT.create()
-						.withSubject(user.getUsername())
-						.withExpiresAt(new Date(System.currentTimeMillis()+JWTUtil.EXPIRE_ACCESS_TOKEN))
+				Users user = service.loadUserByUserName(username);
+				String jwtAccessToken = JWT.create().withSubject(user.getUsername())
+						.withExpiresAt(new Date(System.currentTimeMillis() + JWTUtil.EXPIRE_ACCESS_TOKEN))
 						.withIssuer(request.getRequestURI().toString())
-						.withClaim("roles", user.getAppRoles().stream().map(r->r.getRoleName()).collect(Collectors.toList()))
+						.withClaim("roles",
+								user.getAppRoles().stream().map(r -> r.getRoleName()).collect(Collectors.toList()))
 						.sign(algorithm);
-				 
-				Map<String,String> idToken = new HashMap<>();
+
+				Map<String, String> idToken = new HashMap<>();
 				idToken.put("access-token", jwtAccessToken);
 				idToken.put("refresh-token", refreshToken);
 				response.setContentType("application/json");
 				new ObjectMapper().writeValue(response.getOutputStream(), idToken);
-				
+
 			} catch (Exception e) {
 //				response.setHeader("error-message", e.getMessage());
 //				response.sendError(HttpServletResponse.SC_FORBIDDEN);
 				throw e;
 			}
-		}else {
+		} else {
 			throw new RuntimeException("Refresh Token required!!");
 		}
 	}
 }
-
-
-
 
 @Data
 class RoleUserForm {
 	private String username;
 	private String roleName;
 }
-	
 

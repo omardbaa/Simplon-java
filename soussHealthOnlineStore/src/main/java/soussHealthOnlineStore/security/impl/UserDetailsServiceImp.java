@@ -3,6 +3,7 @@ package soussHealthOnlineStore.security.impl;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
@@ -19,6 +20,7 @@ import soussHealthOnlineStore.services.AuthenticationService;
 @Service
 public class UserDetailsServiceImp implements UserDetailsService {
 
+	@Autowired
 	private AuthenticationService authenticationService ;
 
 	public UserDetailsServiceImp(AuthenticationService authenticationService ) {

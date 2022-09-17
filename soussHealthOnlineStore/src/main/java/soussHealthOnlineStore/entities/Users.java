@@ -57,8 +57,7 @@ public  class Users {
 	
 	private String email; 
 	
-	@Enumerated(value = EnumType.STRING)
-	private Label label;
+	private String label;
 
 	@ManyToMany(fetch = FetchType.EAGER)
 	private Collection<AppRole> appRoles ;

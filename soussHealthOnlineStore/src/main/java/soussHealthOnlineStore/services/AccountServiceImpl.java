@@ -4,8 +4,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,7 +17,7 @@ import soussHealthOnlineStore.repositories.UsersRepository;
 
 @Service
 @Transactional
-public class UsersServiceImpl implements DaoService<Users> {
+public class AccountServiceImpl implements DaoService<Users> {
 	
   
 	@Autowired
@@ -56,10 +54,6 @@ public class UsersServiceImpl implements DaoService<Users> {
 	}
 	
 	
-	
-
-     
- 
 
 	@Override
 	public List<Users> getAll() {
@@ -71,11 +65,43 @@ public class UsersServiceImpl implements DaoService<Users> {
 		return userRepository.findByUsername(username);
 	}
 
+	public void addRoleToUser(String username, String roleName) {
+		Users user = userRepository.findByUsername(username);
+		if (user == null)
+			throw new RuntimeException("User not found");
+		AppRole appRole = roleRepo.findByRoleName(roleName);
+		if (appRole == null)
+			throw new RuntimeException("Role not found");
+		user.getAppRoles().add(appRole);
+		userRepository.save(user);
 
+	}
+
+	
+	public void removeRoleToUser(String username, String roleName) {
+		Users user = userRepository.findByUsername(username);
+		if (user == null)
+			throw new RuntimeException("User not found");
+		AppRole appRole = roleRepo.findByRoleName(roleName);
+		if (appRole == null)
+			throw new RuntimeException("Role not found");
+		user.getAppRoles().remove(appRole);
+
+	}
+
+	
+	public void save(AppRole appRole) {
+		roleRepo.save(appRole);
 		
-
-    
-
+	}
+public Users registerDefaultUser(Users user) {
+	String password = user.getPassword();
+	user.setPassword(passwordEncoder.encode(password));
+    	
+        user.setAppRoles(Arrays.asList(roleRepo.findByRoleName("CLIENT")));
+        return userRepository.save(user);
+    }
+	
 	
 
 }
