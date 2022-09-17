@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.websocket.server.PathParam;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
@@ -56,7 +57,8 @@ public AccountController(AccountServiceImpl service){
 	
 	
 
-	@PostMapping("/regester")
+	@PostMapping
+	@CrossOrigin(origins = "http://localhost:4200")
 	public String register(@RequestBody Users user) {
 		System.out.println(user);
 		service.registerDefaultUser(user);
@@ -64,19 +66,27 @@ public AccountController(AccountServiceImpl service){
 	}
 
 	
-	@PostMapping("/save")
-public Users save(@RequestBody Users users  ) {
+//	@PostMapping
+//public Users save(@RequestBody Users users  ) {
+//		service.save(users);
+//		return users;
+//	}
+	@PutMapping("/{id}")
+	public ResponseEntity<Users> update(@PathVariable Long id , @RequestBody Users user ) {
+		
+		Users users = service.findById(id);
+		
+		users.setNom(user.getNom());
+		users.setNom(user.getPrenom());
+		users.setUsername(user.getUsername());
+		users.setEmail(user.getEmail());
+		users.setLabel(user.getLabel());
 		service.save(users);
-		return users;
-	}
-	@PutMapping("/update")
-	public Users update(@RequestBody Users users  ) {
-		service.save(users);
-		return users;
+		return new ResponseEntity<>(users, HttpStatus.OK);
 	}
 	
 	
-	@GetMapping("/users")
+	@GetMapping
 	@CrossOrigin(origins = "http://localhost:4200")
 //	@PostAuthorize("hasAuthority('ADMIN')")
 	public ResponseEntity <List<Users>> getAll(){
@@ -86,7 +96,7 @@ public Users save(@RequestBody Users users  ) {
 	}
 	
 	
-	@GetMapping("/user/{id}")
+	@GetMapping("/{id}")
 	
 	public ResponseEntity <Users> findById(@PathVariable ("id") Long id) {
 		Users user = service.findById(id);
@@ -95,14 +105,14 @@ public Users save(@RequestBody Users users  ) {
 	}
 
 	
-	@DeleteMapping("/delete/{id}")
+	@DeleteMapping("/{id}")
 	public ResponseEntity <?> delete(@PathVariable (value = "id") Long id) {
 		service.delete(id);
 		return new ResponseEntity <>(HttpStatus.OK);
 		
 	}
 	
-	@PostMapping(path = "role/save")
+	@PostMapping(path = "role")
 	@PostAuthorize("hasAuthority('ADMIN')")
 	public AppRole saveRole(@RequestBody AppRole appRole) {
 		service.save(appRole);

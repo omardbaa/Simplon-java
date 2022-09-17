@@ -1,0 +1,45 @@
+
+<div class="col-md-6 offset-md-3">
+<h3>Sing Up</h3>
+<form (ngSubmit) = "onSubmit()">
+
+    <div class="form-group"> 
+        <label>First name  </label>
+        <input type="text"  class="form-control" id ="nom"
+            [(ngModel)] = "user.nom" name = "nom">
+    </div>
+
+    <div class="form-group"> 
+        <label>Last Name  </label>
+        <input type="text"  class="form-control" id ="prenom"
+            [(ngModel)] = "user.prenom" name = "prenom">
+    </div>
+
+    <div class="form-group"> 
+        <label>Username  </label>
+        <input type="text"  class="form-control" id ="username"
+            [(ngModel)] = "user.username" name = "username">
+    </div>
+
+    <div class="form-group"> 
+        <label>Email  </label>
+        <input type="email"  class="form-control" id ="email"
+            [(ngModel)] = "user.email" name = "email">
+    </div>
+
+    <div class="form-group"> 
+        <label>Password  </label>
+        <input type="password"  class="form-control" id ="password"
+            [(ngModel)] = "user.password" name = "password">
+    </div>
+
+    <div class="form-group"> 
+        <label>Type  </label>
+        <input type="text"  class="form-control" id ="label"
+            [(ngModel)] = "user.label" name = "label">
+    </div>
+
+    <button class="btn btn-success" type="submit">Submit </button>
+
+</form>
+</div>
