@@ -31,7 +31,7 @@ import lombok.ToString;
 
 @NoArgsConstructor @AllArgsConstructor @ToString
 @Data
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,
+@JsonIdentityInfo(scope = Users.class, generator = ObjectIdGenerators.PropertyGenerator.class,
  
 		 property = "id")
 @Inheritance(strategy = InheritanceType.JOINED)

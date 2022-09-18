@@ -32,6 +32,7 @@ this.userService.createUser(this.user).subscribe(data => {
   onSubmit(){
     console.log(this.user);
     this.saveUser()
+    this.goToUserList();
 
   }
 

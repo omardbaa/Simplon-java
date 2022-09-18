@@ -41,6 +41,8 @@ import soussHealthOnlineStore.services.AccountServiceImpl;
 @RestController
 @EnableAutoConfiguration
 @RequestMapping(value = "/user")
+@CrossOrigin(origins = "http://localhost:4200")
+
 public class AccountController {
 	@Autowired
 	private AccountServiceImpl service;
@@ -77,7 +79,7 @@ public AccountController(AccountServiceImpl service){
 		Users users = service.findById(id);
 		
 		users.setNom(user.getNom());
-		users.setNom(user.getPrenom());
+		users.setPrenom(user.getPrenom());
 		users.setUsername(user.getUsername());
 		users.setEmail(user.getEmail());
 		users.setLabel(user.getLabel());
@@ -106,10 +108,12 @@ public AccountController(AccountServiceImpl service){
 
 	
 	@DeleteMapping("/{id}")
-	public ResponseEntity <?> delete(@PathVariable (value = "id") Long id) {
+	public ResponseEntity< Map <String, Boolean>> delete(@PathVariable  Long id) {
+		Users users = service.findById(id);
 		service.delete(id);
-		return new ResponseEntity <>(HttpStatus.OK);
-		
+		Map<String, Boolean> response = new HashMap<>();
+		response.put("deleted", Boolean.TRUE);
+		return ResponseEntity.ok(response);
 	}
 	
 	@PostMapping(path = "role")

@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserInterface } from '../models/user-interface';
 import { UserService } from '../user-service/user.service';
 
@@ -11,7 +12,7 @@ import { UserService } from '../user-service/user.service';
 export class UserListComponent implements OnInit {
   users: UserInterface[] = [];
 
-  constructor(private userService : UserService) { }
+  constructor(private userService : UserService, private router: Router) { }
 
   ngOnInit(): void {
 
@@ -24,6 +25,20 @@ export class UserListComponent implements OnInit {
     });
   }
 
+  userDetails(id:number){
+    this.router.navigate(['user-details', id]);
+
+  }
+
+  updateUser(id: number){
+    this.router.navigate(['update-user', id]);
+  }
+  deleteUser (id: number){
+    this.userService.deleteUser(id).subscribe(data =>{
+   console.log(data);
+      this.getUsers();
+    })
+  }
 
   getData(){
     /*this.httpclient.get<UserInterface>("http://localhost:8080/auth/users")*/

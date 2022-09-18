@@ -21,9 +21,11 @@
             <td> {{user.username}}</td>
             <td> {{user.email}}</td>
             <td> {{user.label}}</td>
-         
-            <td><button class="btn btn-danger">Delete</button></td>
-                <td><button class="btn btn-success">Edit</button></td>
+            <td>
+                <td><button (click)="userDetails(user.id)" class="btn btn-info">Details</button>
+                <button (click)="updateUser(user.id)" class="btn btn-success" style="margin-left: 10px">Update</button>
+                <button (click)="deleteUser(user.id)" class="btn btn-danger" style="margin-left: 10px">Delete</button>
+            </td>
         </tr>
     </tbody>
 </table>
