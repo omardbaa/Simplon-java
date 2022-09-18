@@ -60,7 +60,7 @@ public AccountController(AccountServiceImpl service){
 	
 
 	@PostMapping
-	@CrossOrigin(origins = "http://localhost:4200")
+//	@CrossOrigin(origins = "http://localhost:4200")
 	public String register(@RequestBody Users user) {
 		System.out.println(user);
 		service.registerDefaultUser(user);
@@ -89,7 +89,7 @@ public AccountController(AccountServiceImpl service){
 	
 	
 	@GetMapping
-	@CrossOrigin(origins = "http://localhost:4200")
+//	@CrossOrigin(origins = "http://localhost:4200")
 //	@PostAuthorize("hasAuthority('ADMIN')")
 	public ResponseEntity <List<Users>> getAll(){
 		List<Users> users = service.getAll();

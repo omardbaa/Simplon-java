@@ -1,5 +1,5 @@
 
-<div class="col-md-6 offset-md-3">
+<div class="col-md-6 offset-md-3" style=" border-color: rgb(65, 65, 245)" style="border: 1px;" >
 <h3>Sing Up</h3>
 <form (ngSubmit) = "onSubmit()">
 
@@ -36,10 +36,36 @@
     <div class="form-group"> 
         <label>Type  </label>
         <input type="text" value="CLIENT" class="form-control" id ="label"
-            [(ngModel)] = "user.label" name = "label">
+            [(ngModel)] = "user.label" name = "label" placeholder="Client">
     </div>
 
-    <button class="btn btn-success" type="submit">Submit </button>
+
+    
+<br> 
+<td>
+    
+   
+    <div class="card-body text-center"  style="margin-left: 300px">
+       
+        <!-- Profile picture image-->
+        <img class="img-account-profile rounded-circle mb-2" src="https://pickaface.net/gallery/avatar/ceb123a52820908b1886.png" alt="" class="avatar-md rounded-circle img-thumbnail">
+        <!-- Profile picture help block-->
+        <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
+        <!-- Profile picture upload button-->
+        <button class="btn btn-primary" type="button" >Upload new image</button>
+
+    </div> 
+    <button class="btn btn-success" type="submit" style="margin-right: 300px">Submit </button>
+    
+
+
+</td>
+
+
 
 </form>
-</div>
+
+
+
+
+   
