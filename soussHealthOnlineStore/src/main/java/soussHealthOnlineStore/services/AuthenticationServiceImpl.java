@@ -24,11 +24,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 	 AppRoleRepository repositroy;
 
 
-
 	
-
-	
-
 	@Override
 	public Users loadUserByUserName(String username) {
 		return userRepository.findByUsername(username);

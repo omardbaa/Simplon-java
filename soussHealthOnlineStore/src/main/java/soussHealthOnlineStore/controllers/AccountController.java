@@ -41,7 +41,7 @@ import soussHealthOnlineStore.services.AccountServiceImpl;
 @RestController
 @EnableAutoConfiguration
 @RequestMapping(value = "/user")
-@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "http://localhost:4200")
 
 public class AccountController {
 	@Autowired

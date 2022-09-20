@@ -35,6 +35,7 @@ public class Command {
 	@JsonFormat(pattern="yyyy-MM-dd")
 	@Temporal(TemporalType.DATE)
 	private Date date_command;
+	
 	private Double prixTotal;
 	
 	
